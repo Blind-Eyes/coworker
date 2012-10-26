@@ -1,0 +1,60 @@
+- if session[:usuario].es_docente?
+  .navbar
+    .navbar-inner
+      .container
+        .nav-collapse
+          %ul.nav
+            %li
+              = link_to "Inicio", :action => "docente", :controller => "principal"
+            - if session[:usuario].es_docente_admin? || session[:usuario].es_estudiante_docente?
+              %li
+                = link_to "Volver a selección de roles", :action => "bienvenida", :controller => "principal"
+          %ul.nav.pull-right
+            %li.divider-vertical
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                = session[:rol].class
+                \:
+                \#{session[:usuario].nombre_completo}
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "Cambiar mi clave", :action => "cambiar_mi_clave", :controller => "principal"
+                %li.divider
+                %li
+                  = link_to "Cerrar Sesión", :action => "cerrar_sesion", :controller => "principal"
+        / /.nav-collapse
+    / /navbar-inner
+  / /navbar
+  -if flash[:mensaje]
+    .alert.alert-info
+      =flash[:mensaje]
+  .bgtitles
+    %h2	
+      =@materia.nombre+' - '+@entrega.nombre
+  %br/
+  #listado-materias
+    -@grupos.each do |grupo|
+      %h3
+        =link_to 'Grupo Número '+ grupo.nro.to_s
+      %div
+        %p
+          -grupo.integrantes(grupo.nro,@entregaId).each do |integrante|
+            -@usuarios=Usuario.where(:cedula => integrante.estudiante_cedula).first
+            =@usuarios.descripcion
+            %br
+          =link_to "Editar Grupo",{:action => "editar_grupo", :grupo_nro => grupo.nro, :entrega_id => @entregaId}, :class => "btn btn-primary btn-large"
+  -if @creacionFlag == true
+    .row
+      .span3
+        .nada asdsd
+      .span4
+        .squarelogin
+          %br/
+          =link_to "Crear grupos grupos automaticamente", {:action =>"crear_grupos", :materia_id => @materiaId, :max_integrantes => @nroIntegrantes, :entrega_id => @entregaId }, :class => "btn btn-primary btn-large"
+          %br/
+    %br/
+    %br/
+  %br/
+
+    

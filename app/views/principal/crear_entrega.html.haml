@@ -1,0 +1,100 @@
+- if session[:usuario].es_docente?
+  .navbar
+    .navbar-inner
+      .container
+        .nav-collapse
+          %ul.nav
+            %li
+              = link_to "Inicio", :action => "docente", :controller => "principal"
+            - if session[:usuario].es_docente_admin? || session[:usuario].es_estudiante_docente?
+              %li
+                = link_to "Volver a selección de roles", :action => "bienvenida", :controller => "principal"
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Materias
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "crear_entrega"} Crear Entrega
+          %ul.nav.pull-right
+            %li.divider-vertical
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                = session[:rol].class
+                \:
+                \#{session[:usuario].nombre_completo}
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "Cambiar mi clave", :action => "cambiar_mi_clave", :controller => "principal"
+                %li.divider
+                %li
+                  = link_to "Cerrar Sesión", :action => "cerrar_sesion", :controller => "principal"
+        / /.nav-collapse
+    / /navbar-inner
+  / /navbar
+  -if flash[:mensaje]
+    .alert.alert-info
+      =flash[:mensaje]
+  .row
+    =form_tag({:action => "procesar_crear_entrega"},:class => "form-horizontal", :multipart => true) do
+      .span6
+        %fieldset
+          .bgtitlessmall
+            %h2 Datos de la materia
+          %br/
+          .control-group
+            %label.control-label Materia:
+            .controls
+              =collection_select :entrega_seccion, :materia_id, @materias, :id, :nombre, {:prompt => "Seleccione una materia"}, {:class => "input-xxlarge"}
+              %span{ :id => 'ajax-loader', :style => "display: none"}
+                
+          .control-group
+            %label.control-label Secciones:
+            #secciones.controls
+              \-- No definidas --
+          .control-group
+            %label.control-label Enviar Correo de notificacion:
+            .controls
+              =check_box_tag "correo", false
+          .controls
+            %button.btn.btn-primary.btn-large{:type => "submit"} Enviar
+      .span6
+        %fieldset
+          .bgtitlessmall
+            %h2 Datos de la entrega
+          %br/
+          .control-group
+            %label.control-label Nombre:
+            .controls
+              =text_field :entrega, :nombre
+          .control-group
+            %label.control-label Fecha:
+            .controls
+              =text_field :entrega, :fecha_entrega, :class => "fecha"
+          .control-group
+            %label.control-label Fecha (tope):
+            .controls
+              =text_field :entrega, :fecha_tope, :class => "fecha"
+          .control-group
+            %label.control-label Límite de versiones:
+            .controls
+              =select :entrega, :limite_versiones, [[1,1], [5,5], [10,10], [20,20]], :prompt => "Seleccione..."
+          .control-group
+            %label.control-label Formato:
+            .controls
+              =select :entrega, :archivo_formato, [['zip','zip'], ['pdf','pdf']], :prompt => "Seleccione..."
+          .control-group
+            %label.control-label Tamaño:
+            .controls
+              =select :entrega, :archivo_tamano_max, [['1 MB','1024'], ['2 MB','2048']], :prompt => "Seleccione..."
+          .control-group
+            %label.control-label Número de integrantes:
+            .controls
+              =select :entrega, :numero_max_integrantes, [[1,1], [2,2], [3,3]], :prompt => "Seleccione..."
+          .control-group
+            %label.control-label Archivo de enunciado:
+            .controls
+              =file_field :entrega_archivo, :archivo 
+      .span2
+        .control-group

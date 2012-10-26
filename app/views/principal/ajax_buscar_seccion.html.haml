@@ -1,0 +1,7 @@
+-if @secciones.size > 0
+  -@secciones.each do |sec|
+    %p.checkbox
+      =check_box_tag "secciones[]", sec.nombre
+      =sec.nombre
+-else
+  \-- No definidas --

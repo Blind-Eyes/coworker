@@ -1,0 +1,50 @@
+- if session[:usuario].es_administrador?
+  .navbar
+    .navbar-inner
+      .container
+        .nav-collapse
+          %ul.nav
+            %li
+              = link_to "Inicio", :action => "index"
+            %li
+              = link_to "Materias", :action => "listarMaterias"
+            %li
+              = link_to "Volver a docentes", :action => "listarDocentes"
+            - if session[:usuario].es_estudiante_admin? || session[:usuario].es_docente_admin?
+              %li
+                = link_to "Volver a selección de roles", :action => "bienvenida", :controller => "principal"
+          %ul.nav.pull-right
+            %li.divider-vertical
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                = session[:rol].class
+                \:
+                \#{session[:usuario].nombre_completo}
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "Cambiar mi clave", :action => "cambiar_mi_clave", :controller => "principal"
+                %li.divider
+                %li
+                  = link_to "Cerrar Sesión", :action => "cerrar_sesion", :controller => "principal"
+        / /.nav-collapse
+    / /navbar-inner
+  / /navbar
+  -if flash[:mensaje]
+    .alert.alert-info
+      =flash[:mensaje]
+  .bgtitles
+    %h2
+      -seleccionado = Usuario.find(@docenteCedula)
+      =seleccionado.nombre_completo
+  %br/
+  #listado-materias
+    -@docente.materias.each do |materia|
+      %h3
+        =link_to materia.nombre
+      %div
+        %p
+          =link_to "Eliminar", {:action => "deleteMateria", :controller => "configuracion", :docente_cedula => @docenteCedula, :materia_id => materia.id}, :class => "btn btn-primary btn-large"
+          %br/
+        %br/
+  =button_to "Agregar Materia", {:action => "agregarMateria", :docente_cedula =>@docente.usuario_cedula}, :class => "btn btn-primary btn-large"

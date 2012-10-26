@@ -1,0 +1,49 @@
+.navbar
+  .navbar-inner
+    .container
+      .nav-collapse
+        %ul.nav
+          %li
+            = link_to "Inicio", :action => "bienvenida", :controller => "principal"
+        %ul.nav.pull-right
+          %li.divider-vertical
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              = session[:rol].class
+              \:
+              \#{session[:usuario].nombre_completo}
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                = link_to "Cambiar mi clave", :action => "cambiar_mi_clave", :controller => "principal"
+              %li.divider
+              %li
+                = link_to "Cerrar Sesión", :action => "cerrar_sesion", :controller => "principal"
+      / /.nav-collapse
+  / /navbar-inner
+/ /navbar
+-if flash[:mensaje]
+  .alert.alert-info
+    =flash[:mensaje]
+.container
+  .bgtitles
+    %h2
+      Selección de Roles
+  %br/
+  .span3
+    .nada
+      asdsd
+  .span4
+    .squarelogin
+      %br/
+      /- if session[:usuario].es_administrador?
+      /  =button_to "Administrador", {:action => "index", :controller =>"configuracion"}, :class => "btn btn-primary btn-large"
+      /  %br/
+      /- if session[:usuario].es_estudiante?
+      /  =button_to "Estudiante", {:action => "estudiante"}, :class => "btn btn-primary btn-large"
+      /  %br/
+      /- if session[:usuario].es_docente?
+      /  =button_to "Docente", {:action => "docente"}, :class => "btn btn-primary btn-large"
+      /  %br/
+  %br/
+  %br/

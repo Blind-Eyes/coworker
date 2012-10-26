@@ -1,0 +1,61 @@
+- if session[:usuario].es_docente?
+  .navbar
+    .navbar-inner
+      .container
+        .nav-collapse
+          %ul.nav
+            %li
+              = link_to "Inicio", :action => "docente", :controller => "principal"
+            - if session[:usuario].es_docente_admin? || session[:usuario].es_estudiante_docente?
+              %li
+                = link_to "Volver a selección de roles", :action => "bienvenida", :controller => "principal"
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Materias
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "crear_entrega"} Crear Entrega
+          %ul.nav.pull-right
+            %li.divider-vertical
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                = session[:rol].class
+                \:
+                \#{session[:usuario].nombre_completo}
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "Cambiar mi clave", :action => "cambiar_mi_clave", :controller => "principal"
+                %li.divider
+                %li
+                  = link_to "Cerrar Sesión", :action => "cerrar_sesion", :controller => "principal"
+        / /.nav-collapse
+    / /navbar-inner
+  / /navbar
+  -if flash[:mensaje]
+    .alert.alert-info
+      =flash[:mensaje]
+  .bgtitles
+    %h2
+      Materias Dictadas
+  %br/
+  #listado-materias
+    -session[:rol].materias.each do |materia|
+      %h3
+        =link_to materia.nombre
+      %div
+        %p
+          =link_to "Agregar Estudiantes", {:action =>"agregar_estudiantes", :materia_nombre => materia.nombre}, :class => "btn btn-primary btn-large"
+          =link_to "Consultar Estudiantes", {:action =>"consultar_estudiantes", :materia_id => materia.id}, :class => "btn btn-primary btn-large"
+          %br/
+          %br/
+          -materia.entregas.each do |entrega|
+            =link_to entrega.nombre
+            %br/
+            =link_to "Descargar Enunciado", {:action =>"obtener_entrega", :entrega_id => entrega.id}, :class => "btn btn-primary btn-large"
+            =link_to "Administrar Entrega", {:action =>"administrar_entrega", :materia_id => materia.id, :entrega_id =>entrega.id}, :class => "btn btn-primary btn-large"
+            =link_to "Listar Entregables", {:action =>"listar_entregables", :materia_id => materia.id, :entrega_id =>entrega.id}, :class => "btn btn-primary btn-large"
+            =link_to "Eliminar Entrega",{:action =>"eliminar_entrega", :entrega_id => entrega.id},:confirm => "Esta seguro?", :class => "btn btn-primary btn-large"
+            =link_to "Administrar grupos", {:action =>"administrar_grupos", :materia_id => materia.id, :max_integrantes => entrega.numero_max_integrantes, :entrega_id => entrega.id}, :class => "btn btn-primary btn-large"
+            %br/

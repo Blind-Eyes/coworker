@@ -1,0 +1,65 @@
+- if session[:usuario].es_docente?
+  .navbar
+    .navbar-inner
+      .container
+        .nav-collapse
+          %ul.nav
+            %li
+              = link_to "Inicio", :action => "docente", :controller => "principal"
+            - if session[:usuario].es_docente_admin? || session[:usuario].es_estudiante_docente?
+              %li
+                = link_to "Volver a selección de roles", :action => "bienvenida", :controller => "principal"
+          %ul.nav.pull-right
+            %li.divider-vertical
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                = session[:rol].class
+                \:
+                \#{session[:usuario].nombre_completo}
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "Cambiar mi clave", :action => "cambiar_mi_clave", :controller => "principal"
+                %li.divider
+                %li
+                  = link_to "Cerrar Sesión", :action => "cerrar_sesion", :controller => "principal"
+        / /.nav-collapse
+    / /navbar-inner
+  / /navbar
+  -if flash[:mensaje]
+    .alert.alert-info
+      =flash[:mensaje]
+  .bgtitles
+    %h2 
+      =@materia.nombre+' - '+@entrega.nombre
+  %br/
+  #listado-materias
+    -@grupos.each do |grupo|
+      %h3
+        =link_to 'Grupo Número '+ grupo.nro.to_s
+      %div
+        %p
+          Integrantes:
+          %br/
+          -grupo.integrantes(grupo.nro,@entregaId).each do |integrante|
+            -@usuarios=Usuario.where(:cedula => integrante.estudiante_cedula).first
+            =@usuarios.descripcion
+            %br/
+          -if Entregable.where(:entrega_id => @entregaId, :grupo_nro => grupo.nro).empty?
+            .alert.alert-info Este equipo aún no tiene ningún entregable
+          -else
+            -@entregable = Entregable.where(:grupo_nro => grupo.nro, :entrega_id => @entregaId).first
+            -@entrego = Usuario.where(:cedula => @entregable.estudiante_cedula_entrego).first
+            %br/
+            Entregado por:
+            =@entrego.nombre_completo
+            %br/
+            Con Fecha:
+            =@entregable.fecha_hora
+            %br/
+            =link_to "Descargar Último Entregable", {:action =>"obtener_entregable", :entrega_id => @entregaId, :grupo_nro => grupo.nro}, :class => "btn btn-primary btn-large"
+    %br/
+    %br/
+  %br/
+
+    

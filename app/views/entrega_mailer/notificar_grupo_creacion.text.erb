@@ -1,0 +1,14 @@
+Estimado <%=@usuario.nombre_completo%>
+Se han creado Los grupos para la entrega <%=@entrega.nombre%>
+<% @grupos.each do |grupo| %>
+Grupo Nro <%= grupo.nro%>
+				<%@estudiantes = EstudianteGrupo.where(:grupo_nro => grupo.nro,:entrega_id => @entrega.id) %>
+				<%@estudiantes = @estudiantes.collect{|x| x.estudiante_cedula}%>
+				<%@estudiantes = Usuario.where(:cedula => @estudiantes)%>
+
+				<%@estudiantes.each do |estudiante| %>
+				<%= estudiante.descripcion%>
+				<% end %>				
+<% end %>
+
+

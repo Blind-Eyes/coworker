@@ -1,0 +1,44 @@
+- if session[:usuario].es_estudiante?
+  .navbar
+    .navbar-inner
+      .container
+        .nav-collapse
+          %ul.nav
+            %li
+              = link_to "Inicio", :action => "estudiante", :controller => "principal"
+            - if session[:usuario].es_estudiante_admin? || session[:usuario].es_estudiante_docente?
+              %li
+                = link_to "Volver a selección de roles", :action => "bienvenida", :controller => "principal"
+          %ul.nav.pull-right
+            %li.divider-vertical
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                = session[:rol].class
+                \:
+                \#{session[:usuario].nombre_completo}
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "Cambiar mi clave", :action => "cambiar_mi_clave", :controller => "principal"
+                %li.divider
+                %li
+                  = link_to "Cerrar Sesión", :action => "cerrar_sesion", :controller => "principal"
+        / /.nav-collapse
+    / /navbar-inner
+  / /navbar
+  -if flash[:mensaje]
+    .alert.alert-info
+      =flash[:mensaje]
+  .bgtitles
+    %h2
+      Materias 
+  %br/
+  #listado-materias
+    -session[:rol].materias.each do |materia|
+      %h3
+        =link_to materia.nombre
+      %div
+        %p
+          -materia.entregas.each do |entrega|
+            =link_to entrega.nombre, {:action =>"consultar_entrega", :materia_id => materia.id, :entrega_id => entrega.id}
+            %br/

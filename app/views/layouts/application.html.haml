@@ -1,0 +1,21 @@
+!!!
+%html{:lang => "es"}
+  %head
+    %meta{:charset => "utf-8"}
+      %title Entregas
+      = stylesheet_link_tag    "application", :media => "all"
+      = javascript_include_tag "application"
+      = csrf_meta_tags
+  %body
+    .container
+      .page-header.well
+        .row
+          .span7
+            .logo
+          .span4
+            .headername
+              #{session[:usuario].nombre_completo}
+      =yield
+      %hr/
+      %footer
+        %p © LABATI 2012 - JUAN CAMEJO / ALEJANDRO PARDO

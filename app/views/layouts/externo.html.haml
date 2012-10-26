@@ -1,0 +1,13 @@
+!!!
+%html{:lang => "es"}
+  %head
+    %meta{:charset => "utf-8"}
+      %title Coworker - Inicio de Sesión
+      = stylesheet_link_tag    "application"
+      = javascript_include_tag "application"
+      = csrf_meta_tags
+  %body
+  =yield
+  .clear
+  #versionBar
+    .copyright &copy; Copyright 2012  Todos los derechos reservados Rodriguez Marchesini y Asociados, C.A.

@@ -1,0 +1,65 @@
+- if session[:usuario].es_docente?
+  .navbar
+    .navbar-inner
+      .container
+        .nav-collapse
+          %ul.nav
+            %li
+              = link_to "Inicio", :action => "docente", :controller => "principal"
+            %li
+              =link_to "Volver a administrar grupos", {:action =>"administrar_grupos", :materia_id => @materiaId, :max_integrantes => @maxIntegrantes, :entrega_id => @entregaId}
+            - if session[:usuario].es_docente_admin? || session[:usuario].es_estudiante_docente?
+              %li
+                = link_to "Volver a selección de roles", :action => "bienvenida", :controller => "principal"
+          %ul.nav.pull-right
+            %li.divider-vertical
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                = session[:rol].class
+                \:
+                \#{session[:usuario].nombre_completo}
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "Cambiar mi clave", :action => "cambiar_mi_clave", :controller => "principal"
+                %li.divider
+                %li
+                  = link_to "Cerrar Sesión", :action => "cerrar_sesion", :controller => "principal"
+        / /.nav-collapse
+    / /navbar-inner
+  / /navbar
+  -if flash[:mensaje]
+    .alert.alert-info
+      =flash[:mensaje]
+  .bgtitles
+    %h2	
+      Modificación de Grupo
+  %br/
+  #listado-materias
+    %h3
+      =link_to 'Grupo Número '+ @grupoNro
+    %div
+      %p
+        .row
+          .span6
+            -@integrantes.each do |integrante|
+              -@usuario = Usuario.where(:cedula => integrante.estudiante_cedula).first
+              .control-group
+                %label.control-label 
+                  =@usuario.descripcion
+                  %br/
+                  =link_to "Eliminar estudiante del grupo",{:action =>"eliminar_integrante", :entrega_id => @entregaId, :grupo_nro => @grupoNro, :cedula => integrante.estudiante_cedula, :max_integrantes => @maxIntegrantes, :materia_id => @materiaId}, :confirm => "¿Estas seguro de eliminar este integrante?", :class => "btn btn-primary btn-large"
+              %br/
+          .span3
+            %br/
+            -if @integrantes.length < @maxIntegrantes && @estudiantesSinGrupo.size >= 1
+              =form_tag({:action => "agregar_estudiante"},:class => "form-horizontal") do
+                =collection_select :estudiante_seccion, :estudiante_cedula, @nombresEstudiantesSG, :cedula, :descripcion, {:prompt => "Estudiantes sin grupo"}, {:class => "input-xxlarge"}
+                %br/
+                =hidden_field_tag 'entrega_id', @entregaId
+                =hidden_field_tag 'grupo_nro', @grupoNro
+                =hidden_field_tag 'max_integrantes', @maxIntegrantes
+                =hidden_field_tag 'materia_id', @materiaId
+                %button.btn.btn-primary.btn-large{:type => "submit"} Agregar Estudiante
+    %br/
+    %br/

@@ -1,0 +1,28 @@
+-if flash[:mensaje]
+  .alert.alert-error
+    =flash[:mensaje]
+#alertMessage.error Clave o Usuario Invalido
+#successLogin
+.text_success
+  =image_tag("loadder/loader_green.gif")
+  %span Please wait
+#login
+  .ribbon
+  .inner
+    .logo
+      =image_tag("logo/logo_login.png")
+    .userbox
+    .formLogin
+      = form_tag()do
+        .tip
+          =text_field :usuario, :username, :id => "username_id", :title => "Username"
+        .tip
+          =password_field :usuario, :clave, :id => "password", :title => "Password"
+        .pad1
+          .pad2
+            %div
+              .uibutton-group
+                %a#but_login.uibutton.normal Entrar
+                <li><a class="uibutton normal" href="#" id="forgetpass">¿Olvidó?</a></li>
+  .clear
+  .shadow

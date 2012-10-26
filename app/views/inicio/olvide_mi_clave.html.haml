@@ -1,0 +1,10 @@
+=form_tag({:action => "procesar_olvide_mi_clave"},:class => "form-horizontal") do
+  %fieldset
+    %legend Olvidé mi clave
+    .control-group
+      %label.control-label Cédula:
+      .controls
+        =password_field :usuario, :cedula, :class => "input"
+    .control-group
+      .controls
+        %button.btn.btn-primary.btn-large{:type => "submit"} Enviar

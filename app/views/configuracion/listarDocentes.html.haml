@@ -1,0 +1,46 @@
+- if session[:usuario].es_administrador?
+  .navbar
+    .navbar-inner
+      .container
+        .nav-collapse
+          %ul.nav
+            %li
+              = link_to "Inicio", :action => "index"
+            %li
+              = link_to "Materias", :action => "listarMaterias"
+            - if session[:usuario].es_estudiante_admin? || session[:usuario].es_docente_admin?
+              %li
+                = link_to "Volver a selección de roles", :action => "bienvenida", :controller => "principal"
+          %ul.nav.pull-right
+            %li.divider-vertical
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                = session[:rol].class
+                \:
+                \#{session[:usuario].nombre_completo}
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "Cambiar mi clave", :action => "cambiar_mi_clave", :controller => "principal"
+                %li.divider
+                %li
+                  = link_to "Cerrar Sesión", :action => "cerrar_sesion", :controller => "principal"
+        / /.nav-collapse
+    / /navbar-inner
+  / /navbar
+  -if flash[:mensaje]
+    .alert.alert-info
+      =flash[:mensaje]
+  .bgtitles
+    %h2
+      Docentes
+  %br/
+  #listado-materias
+    -@docentes.each do |docente|
+      %h3
+        =link_to docente.nombreCompleto
+      %div
+        %p
+          =link_to "Ver Materias dictadas", {:action => "verMaterias", :docente_cedula => docente.id }, :class => "btn btn-primary btn-large"
+          =link_to "Agregar Materia", {:action => "agregarMateria", :docente_cedula => docente.id}, :class => "btn btn-primary btn-large"
+        %br/

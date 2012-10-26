@@ -1,0 +1,129 @@
+- if session[:usuario].es_estudiante?
+  .navbar
+    .navbar-inner
+      .container
+        .nav-collapse
+          %ul.nav
+            %li
+              = link_to "Inicio", :action => "estudiante", :controller => "principal"
+            - if session[:usuario].es_estudiante_admin? || session[:usuario].es_estudiante_docente?
+              %li
+                = link_to "Volver a selección de roles", :action => "bienvenida", :controller => "principal"
+          %ul.nav.pull-right
+            %li.divider-vertical
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                = session[:rol].class
+                \:
+                \#{session[:usuario].nombre_completo}
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "Cambiar mi clave", :action => "cambiar_mi_clave", :controller => "principal"
+                %li.divider
+                %li
+                  = link_to "Cerrar Sesión", :action => "cerrar_sesion", :controller => "principal"
+        / /.nav-collapse
+    / /navbar-inner
+  / /navbar
+  -if flash[:mensaje]
+    .alert.alert-info
+      =flash[:mensaje]
+  .bgtitles
+    %h2
+      =@materia.nombre + ' / ' + @entrega.nombre 
+  %br/
+  .row
+    .span6
+      %fieldset
+        .bgtitlessmall
+          %h2 Datos de la materia
+        %br/
+        .control-group
+          %label.control-label Materia:
+          %h3 
+            =@materia.nombre
+          %label.control-label Sección:
+          %h3 
+            =@seccion.seccion_nombre
+          -if !@grupoExiste
+            %label.control-label Grupo Número:
+            %h3 
+              =@grupo.grupo_nro
+            %label.control-label Integrantes del Grupo:
+            %h3 
+              -@integrantes.each do |integrante|
+                =integrante.nombreCompleto
+                %br/
+            %label.control-label Entregables Subidos:
+            -if !@entregableExiste
+              %h3 
+                =@entregables.version
+                =' de '
+                =@entrega.limite_versiones
+                %br/
+              -if @entregables.version < @entrega.limite_versiones
+                .controls
+                  =form_tag({:action => "subir_entregable"},:class => "form-horizontal", :multipart => true) do
+                    %label.control-label Entregable:
+                    .controls
+                      =file_field :entrega_archivo, :archivo
+                      =hidden_field_tag 'grupo_nro', @grupo.grupo_nro
+                      =hidden_field_tag 'entrega_id', @entrega.id
+                      =hidden_field_tag 'version', @entregables.version + 1
+                      =hidden_field_tag 'materia_id', @materia.id
+                    .controls
+                      %button.btn.btn-primary.btn-large{:type => "submit"} Subir Entregable
+              -else
+                .alert.alert-info Su grupo ya subió la cantidad máxima de entregables
+            -else
+              %h3 
+                ='0 de '
+                =@entrega.limite_versiones
+                %br/
+              .controls
+                =form_tag({:action => "subir_entregable"},:class => "form-horizontal", :multipart => true) do
+                  %label.control-label Entregable:
+                  .controls
+                    =file_field :entrega_archivo, :archivo
+                    =hidden_field_tag 'grupo_nro', @grupo.grupo_nro
+                    =hidden_field_tag 'entrega_id', @entrega.id
+                    =hidden_field_tag 'version', 1
+                    =hidden_field_tag 'materia_id', @materia.id
+                  .controls
+                    %button.btn.btn-primary.btn-large{:type => "submit"} Subir Entregable
+          -else 
+            .alert.alert-info El profesor no ha creado los grupos
+    .span6
+      %fieldset
+        .bgtitlessmall
+          %h2 Datos de la entrega
+        %br/
+        %label.control-label Entrega:
+        %h3 
+          =@entrega.nombre
+        %label.control-label Fecha Inicial de Entrega:
+        %h3 
+          =@entrega.fecha_entrega
+        %label.control-label Fecha Tope de Entrega:
+        %h3 
+          =@entrega.fecha_tope
+        %label.control-label Límite de Versiones:
+        %h3 
+          =@entrega.limite_versiones
+        %label.control-label Formato de Entrega:
+        %h3 
+          =@entrega.archivo_formato
+        %label.control-label Tamaño Máximo:
+        %h3 
+          =@entrega.archivo_tamano_max
+        %br/
+        -if !@enunciadoExiste
+          =link_to "Descargar Enunciado", {:action =>"obtener_entrega", :entrega_id => @entrega.id}, :class => "btn btn-primary btn-large"
+        -else
+          .alert.alert-info Esta entrega aun no posee enunciado
+          %br/
+        -if !@entregableExiste
+          =link_to "Descargar Último Entregable", {:action =>"obtener_entregable", :entrega_id => @entrega.id, :grupo_nro => @grupo.grupo_nro}, :class => "btn btn-primary btn-large"
+    .span2
+      .control-group
