@@ -1334,7 +1334,7 @@ label.iPhoneCheckLabelOff span {
 	-webkit-border-radius: 15px;
 	padding: 100px 20px 20px 20px;
 }
-#login #username_id, #login #password {
+#login #username_id, #login #password, #login #cedula_id {
 	font-size: 25px;
 	background-repeat:no-repeat;
 	padding-left: 35px;
@@ -1346,7 +1346,7 @@ label.iPhoneCheckLabelOff span {
 	margin-bottom: 10px;
 	font-family:"Myriad Pro", Arial, Helvetica, sans-serif;
 }
-#login #username_id:focus, #login #password:focus {
+#login #username_id:focus, #login #password:focus #cedula_id:focus {
 	color:#000;
 }
 #login #username_id {
@@ -1354,6 +1354,10 @@ label.iPhoneCheckLabelOff span {
 }
 #login #password {
 	background-image: url(icon/pass_.png);
+	font-size: 35px;
+}
+#login #cedula_id {
+	background-image: url(icon/cedula_.png);
 	font-size: 35px;
 }
 #login .userbox {

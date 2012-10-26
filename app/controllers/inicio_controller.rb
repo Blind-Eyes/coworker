@@ -61,7 +61,11 @@ class InicioController < ApplicationController
   end
 
   def procesar_olvide_mi_clave
-
+    if verify_recaptcha
+      #captcha is valid
+    else
+      #captcha is invalid
+    end
     unless params[:usuario] &&
       params[:usuario][:cedula]
       bitacora "Faltan parametros en olvide mi clave"

@@ -33,6 +33,21 @@ $(document).ready(function () {
 		 setTimeout( "unloading()", 2000 );
 		 setTimeout( "Login()", 2500 );
 	});	
+
+function butLogin(){
+	if(document.formLogin.username.value == "" || document.formLogin.clave.value == ""){
+		showError("Please Input Username / Password");
+		$('.inner').jrumble({ x: 4,y: 0,rotation: 0 });	
+		$('.inner').trigger('startRumble');
+		setTimeout('$(".inner").trigger("stopRumble")',500);
+		setTimeout('hideTop()',5000);
+		return false;
+	}		
+	hideTop();
+	loading('Checking',1);		
+	setTimeout( "unloading()", 2000 );
+	setTimeout( "Login()", 2500 );
+}
 																 
 function Login(){
 	

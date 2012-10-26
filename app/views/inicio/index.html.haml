@@ -13,7 +13,7 @@
       =image_tag("logo/logo_login.png")
     .userbox
     .formLogin
-      = form_tag()do
+      = form_tag(:action => "validar")do
         .tip
           =text_field :usuario, :username, :id => "username_id", :title => "Username"
         .tip
@@ -22,7 +22,7 @@
           .pad2
             %div
               .uibutton-group
-                %a#but_login.uibutton.normal Entrar
-                <li><a class="uibutton normal" href="#" id="forgetpass">¿Olvidó?</a></li>
+                =link_to "¿Olvidó?", {:action => "olvide_mi_clave", :controller => "inicio"}, :class => "uibutton normal", :id => "forgetpass"
+                %button#but_login.uibutton.normal{:type => "submit"} Entrar
   .clear
   .shadow
