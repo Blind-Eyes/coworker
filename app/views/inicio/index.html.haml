@@ -1,4 +1,5 @@
-#alertMessage.error
+#alertMessage
+  .error
 #successLogin
 .text_success
   =image_tag("loadder/loader_green.gif")
@@ -12,15 +13,15 @@
     .formLogin
       %form#formLogin{:action => "#", :name => "formLogin"}
         .tip
-          %input#username_id{:name => "username", :title => "Username", :type => "text"}/
+          %input#username_id{:name => "username", :title => "Username", :type => "text"}
         .tip
-          %input#password{:name => "password", :title => "Password", :type => "password"}/
-          %div{:style => "float:right;padding:2px 0px ;"}
-            %div
-              %ul.uibutton-group
-                %li
-                  %a#but_login.uibutton.normal{:href => "#"} Login
-                %li
-                  %a#forgetpass.uibutton.normal{:href => "#"} forpassword
+          %input#password{:name => "password", :title => "Password", :type => "password"}
+        %div{:style => "float:right;padding:2px 0px ;"}
+          %div
+            %ul.uibutton-group
+              %li
+                %a#but_login.uibutton.normal.but_login{:href => "#"} Entrar
+              %li
+                %a#forgetpass.uibutton.normal{:href => "#"} ¿Olvidó?
   .clear
   .shadow

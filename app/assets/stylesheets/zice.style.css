@@ -1059,6 +1059,7 @@ ul.rowData li > input {
 	cursor:pointer;
 	font-family:'Myriad Pro', Arial, Helvetica, sans-serif;
 	background-color:#C2E3F0;
+	display:none;
 	color:#34667A;
 	text-shadow:1px 1px 1px #C8EBFB;
 	right: -20px;
