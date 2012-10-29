@@ -6,6 +6,14 @@ class InicioController < ApplicationController
   def index
   end
 
+  def vacio
+    unless params[:usuario][:username]
+      flash[:mensaje] = "Faltan parametros"
+      redirect_to :action => "index"
+      return
+    end
+  end
+
   def validar
     reset_session
     un = params[:usuario][:username]

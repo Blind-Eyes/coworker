@@ -19,7 +19,7 @@ $(document).ready(function () {
 	    });
 	    
 	$('#but_login').click(function(e){				
-		  if(document.formLogin.username.value == "" || document.formLogin.clave.value == "")
+		  if(document.formLogin.username.value == "" || document.formLogin.password.value == "")
 		  {
 			  showError("Please Input Username / Password");
 			  $('.inner').jrumble({ x: 4,y: 0,rotation: 0 });	
@@ -34,20 +34,7 @@ $(document).ready(function () {
 		 setTimeout( "Login()", 2500 );
 	});	
 
-function butLogin(){
-	if(document.formLogin.username.value == "" || document.formLogin.clave.value == ""){
-		showError("Please Input Username / Password");
-		$('.inner').jrumble({ x: 4,y: 0,rotation: 0 });	
-		$('.inner').trigger('startRumble');
-		setTimeout('$(".inner").trigger("stopRumble")',500);
-		setTimeout('hideTop()',5000);
-		return false;
-	}		
-	hideTop();
-	loading('Checking',1);		
-	setTimeout( "unloading()", 2000 );
-	setTimeout( "Login()", 2500 );
-}
+		
 																 
 function Login(){
 	
@@ -63,13 +50,15 @@ function Login(){
 			setTimeout( "window.location.href='dashboard.html'", 3000 );
 }
 
+
 	
 $('#alertMessage').click(function(){
 	hideTop();
 });
 
 function showError(str){
-	$('#alertMessage').addClass('error').html(str).stop(true,true).show().animate({ opacity: 1,right: '10'}, 500);
+	$('#alertMessage').addClass('error').html(str).stop(true,true).show().animate({ opacity: 1,right: '10'}, 500);	
+	
 }
 
 function showSuccess(str){
