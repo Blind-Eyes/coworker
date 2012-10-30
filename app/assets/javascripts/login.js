@@ -11,21 +11,17 @@ $(document).ready(function () {
 			$('.tip a ').tipsy({gravity: 'sw'});
 			$('.tip input').tipsy({ trigger: 'focus', gravity: 'w' });
 		});	
-	    $('.userload').click(function(e){
+	    $('.userload').live("click", function() {
 			$('.formLogin').animate({   opacity: 1,left: '0' }, 300);			    
 			  $('.userbox').animate({ opacity: 0 }, 200,function(){
 				  $('.userbox').hide();				
 			   });
 	    });
-	    showError("Please Input Username / Password");
-	    $('.inner').jrumble({ x: 4,y: 0,rotation: 0 });	
-		$('.inner').trigger('startRumble');
-
 	    
-	$("#but_login").click(function(e){
+	$("#but_login").live("click", function() {
 		  if(document.formLogin.username.value == "" || document.formLogin.password.value == "")
 		  {
-			  showError("Please Input Username / Password");
+			  showError("Por favor introduzca su usuario y su clave");
 			  $('.inner').jrumble({ x: 4,y: 0,rotation: 0 });	
 			  $('.inner').trigger('startRumble');
 			  setTimeout('$(".inner").trigger("stopRumble")',500);
@@ -37,9 +33,7 @@ $(document).ready(function () {
 		 setTimeout( "unloading()", 2000 );
 		 setTimeout( "Login()", 2500 );
 	});	
-
-		
-																 
+			 
 function Login(){
 	
 	$("#login").animate({   opacity: 1,top: '49%' }, 200,function(){
@@ -54,9 +48,8 @@ function Login(){
 			setTimeout( "window.location.href='dashboard.html'", 3000 );
 }
 
-
 	
-$('#alertMessage').click(function(){
+$('#alertMessage').live("click", function() {
 	hideTop();
 });
 

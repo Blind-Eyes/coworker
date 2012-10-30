@@ -1,5 +1,6 @@
-#alertMessage
-  .error
+-if flash[:mensaje]
+  =flash[:mensaje]
+#alertMessage.error
 #successLogin
 .text_success
   =image_tag("loadder/loader_green.gif")
@@ -11,16 +12,16 @@
       =image_tag("logo/logo_login.png")
     .userbox
     .formLogin
-      %form#formLogin{:action => "#", :name => "formLogin"}
+      %form#formLogin{:action => "validar", :name => "formLogin"}
         .tip
-          %input#username_id{:name => "username", :title => "Username", :type => "text"}
+          %input#username_id{:name => "username", :title => "Usuario", :type => "text"}
         .tip
-          %input#password{:name => "password", :title => "Password", :type => "password"}
+          %input#password{:name => "password", :title => "Clave", :type => "password"}
         %div{:style => "float:right;padding:2px 0px ;"}
           %div
             %ul.uibutton-group
               %li
-                %a#but_login.uibutton.normal.but_login{:href => "#"} Entrar
+                %button#but_login.uibutton.normal{:href => "#"} Entrar
               %li
                 %a#forgetpass.uibutton.normal{:href => "#"} ¿Olvidó?
   .clear

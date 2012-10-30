@@ -6,23 +6,16 @@ class InicioController < ApplicationController
   def index
   end
 
-  def vacio
-    unless params[:usuario][:username]
-      flash[:mensaje] = "Faltan parametros"
-      redirect_to :action => "index"
-      return
-    end
-  end
-
   def validar
     reset_session
-    un = params[:usuario][:username]
-    cl = params[:usuario][:clave]
-    if !un || !cl
+    un = params[:username]
+    cl = params[:password]
+    
+    if !@un || !@cl
       flash[:mensaje] = "Cédula o clave incorrecta"
       redirect_to :action => "index"
-      
     end
+
     if usr = Usuario.autenticar(un, cl)
       session[:usuario] = usr
       /bitacora "El usuario #{usr.descripcion} inicio sesión"/
