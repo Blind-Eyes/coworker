@@ -2,9 +2,14 @@
 %html{:lang => "es"}
   %head
     %meta{:charset => "utf-8"}
-      %title Coworker - Inicio de Sesión
-      = stylesheet_link_tag    "application"
-      = javascript_include_tag "application"
+      %title= yield(:title)
+      = yield(:head)
+      = stylesheet_link_tag    "buttons"
+      = stylesheet_link_tag    "icon"
+      = stylesheet_link_tag    "tipsy"
+      = stylesheet_link_tag    "ui-custom"
+      = stylesheet_link_tag    "bootstrap"
+      = javascript_include_tag "jquery.min"
       = javascript_include_tag 'jquery-jrumble'
       = javascript_include_tag 'jquery.ui.min'
       = javascript_include_tag 'jquery.tipsy'

@@ -1,5 +1,10 @@
+-content_for(:title, 'Coworker - Inicio de Sesión')
 -if flash[:mensaje]
-  =flash[:mensaje]
+  .flashMessage.error
+    =flash[:mensaje]
+-if flash[:mensajeSuccess]
+  .flashMessage.success
+    =flash[:mensajeSuccess]
 #alertMessage.error
 #successLogin
 .text_success
@@ -12,7 +17,7 @@
       =image_tag("logo/logo_login.png")
     .userbox
     .formLogin
-      %form#formLogin{:action => "validar", :name => "formLogin"}
+      %form#formLogin{:action => "/inicio/validar", :name => "formLogin"}
         .tip
           %input#username_id{:name => "username", :title => "Usuario", :type => "text"}
         .tip
@@ -21,8 +26,8 @@
           %div
             %ul.uibutton-group
               %li
-                %button#but_login.uibutton.normal{:href => "#"} Entrar
+                %button#but_login.uibutton.normal Entrar
               %li
-                %a#forgetpass.uibutton.normal{:href => "#"} ¿Olvidó?
+                =link_to "¿Olvidó su clave?", {:action => "olvide_mi_clave", :controller => "inicio"}, :class => "uibutton normal", :id => "forgetpass"
   .clear
   .shadow

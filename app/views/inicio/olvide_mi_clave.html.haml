@@ -1,3 +1,9 @@
+-content_for(:title, 'Coworker - Olvidé mi Clave')
+-if flash[:mensaje]
+  .flashMessage.error
+    =flash[:mensaje]
+#alertMessage.error
+#successLogin
 #login
   .ribbon
   .inner
@@ -5,15 +11,17 @@
       =image_tag("logo/logo_login.png")
     .userbox
     .formLogin
-      = form_tag(:action => "procesar_olvide_mi_clave")do
+      %form#formLogin{:action => "/inicio/procesar_olvide_mi_clave", :name => "formLogin"}
         .tip
-          =text_field :usuario, :cedula, :id => "cedula_id", :title => "Cedula"
+          %input#cedula_id{:name => "cedula", :title => "Cedula", :type => "text"}
           =recaptcha_tags
         .pad1
           .pad2
             %div
               .uibutton-group
                 =link_to "Volver", {:action => "index", :controller => "inicio"}, :class => "uibutton normal"
-                %button#but_login.uibutton.normal{:type => "submit"} Entrar
+                %button#but_olvide.uibutton.normal{:type => "submit"} Entrar
+    .clear
+    %br
   .clear
   .shadow

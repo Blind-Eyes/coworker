@@ -1076,6 +1076,21 @@ ul.rowData li > input {
 	font-weight:bold;
 	padding:15px 25px 15px 45px;
 	width:auto;
+	font-family:'Myriad Pro', Arial, Helvetica, sans-serif;
+	background-color:#C2E3F0;
+	color:#34667A;
+	text-shadow:1px 1px 1px #C8EBFB;
+	text-transform: uppercase;
+	margin-bottom:15px;
+	background-image: url(info.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+}
+.flashMessage {
+	font-size:16px;
+	font-weight:bold;
+	padding:15px 25px 15px 45px;
+	width:auto;
 	cursor:pointer;
 	font-family:'Myriad Pro', Arial, Helvetica, sans-serif;
 	background-color:#C2E3F0;
@@ -1100,7 +1115,20 @@ ul.rowData li > input {
 	background-image: url(error.png);
 	border: 1px #a93a25 solid;
 }
+#flashMessage.error, .flashMessage.error {
+	background-color:#fc4a48;
+	color:#5A0000;
+	text-shadow:1px 1px 1px #E64040;
+	background-image: url(error.png);
+	border: 1px #a93a25 solid;
+}
 #alertMessage.error span, .alertMessage.error span {
+	border-left: 1px #7a0202 solid;
+	border-right: 1px #f08c8a solid;
+	margin-right:10px;
+	padding:5px 0px;
+}
+#flashMessage.error span, .flashMessage.error span {
 	border-left: 1px #7a0202 solid;
 	border-right: 1px #f08c8a solid;
 	margin-right:10px;
@@ -1113,7 +1141,20 @@ ul.rowData li > input {
 	background-image: url(checkmark2.png);
 	border: 1px solid #69a44d;
 }
+#flashMessage.success, .flashMessage.success {
+	background-color:#9bc652;
+	color:#324e03;
+	text-shadow:1px 1px 1px #5c9201;
+	background-image: url(checkmark2.png);
+	border: 1px solid #69a44d;
+}
 .alertMessage.success span {
+	border-left: 1px #688901 solid;
+	border-right: 1px #d0e4a7 solid;
+	margin-right:10px;
+	padding:5px 0px;
+}
+.flashMessage.success span {
 	border-left: 1px #688901 solid;
 	border-right: 1px #d0e4a7 solid;
 	margin-right:10px;
@@ -1359,7 +1400,7 @@ label.iPhoneCheckLabelOff span {
 }
 #login #cedula_id {
 	background-image: url(icon/cedula_.png);
-	font-size: 35px;
+
 }
 #login .userbox {
 	height: 260px;

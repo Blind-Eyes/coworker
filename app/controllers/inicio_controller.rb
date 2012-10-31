@@ -10,51 +10,18 @@ class InicioController < ApplicationController
     reset_session
     un = params[:username]
     cl = params[:password]
-    
-    if !@un || !@cl
-      flash[:mensaje] = "Cédula o clave incorrecta"
-      redirect_to :action => "index"
-    end
 
     if usr = Usuario.autenticar(un, cl)
       session[:usuario] = usr
       /bitacora "El usuario #{usr.descripcion} inicio sesión"/
-      
       session[:rol] = usr.cargo
-
-      redirect_to :action => "bienvenida", 
-      :controller => "principal"
+      redirect_to :action => "bienvenida", :controller => "principal"
       return
-/
-       if session[:usuario].es_estudiante_admin?
-        redirect_to :action => "bienvenida", :controller => "principal"
-        return
-      end
-      if session[:usuario].es_estudiante_docente?
-        redirect_to :action => "bienvenida", :controller => "principal"
-        return
-      end
-      if session[:usuario].es_docente_admin?
-        redirect_to :action => "bienvenida", :controller => "principal"
-        return
-      end
-      if session[:usuario].es_estudiante?
-        redirect_to :action => "estudiante", :controller => "principal"
-        return
-      end
-      if session[:usuario].es_docente?
-        redirect_to :action => "docente", :controller => "principal"
-        return
-      end
-      if session[:usuario].es_administrador?
-        redirect_to :action => "index", :controller =>"configuracion"
-        return
-      end/
     end
    / bitacora "Intento fallido de inicio de sesion con cedula:#{cl} y clave:#{cl}"/
     flash[:mensaje] = "Cédula o clave incorrecta"
     redirect_to :action => "index"
-    return  
+    return
   end
 
   def olvide_mi_clave
@@ -63,34 +30,22 @@ class InicioController < ApplicationController
 
   def procesar_olvide_mi_clave
     if verify_recaptcha
-      #captcha is valid
+      cedula = params[:cedula]
+      usuario = Usuario.where(:cedula => cedula).first
+      unless usuario
+        flash[:mensaje] = "Cédula no encontrada"
+        redirect_to :action => "olvide_mi_clave"
+        return   
+      end
+      CorreosUsuario.correo_olvide_mi_clave(usuario).deliver
+      flash[:mensajeSuccess] = "Correo para recuperar la clave enviado exitósamente"
+      redirect_to :action => "index"
+      return
+
     else
-      #captcha is invalid
-    end
-    unless params[:usuario] &&
-      params[:usuario][:cedula]
-      bitacora "Faltan parametros en olvide mi clave"
-      flash[:mensaje] = "Faltan parametros"
-      redirect_to :action => "index"
+      flash[:mensaje] = "El código de verificación fue incorrecto"
+      redirect_to :action => "olvide_mi_clave"
       return   
     end
-
-    cedula = params[:usuario][:cedula]
-
-    usuario = Usuario.where(:cedula => cedula).first
-
-    unless usuario
-      bitacora "Intento fallido de recuperacion de clave con cedula:#{cedula}"
-      flash[:mensaje] = "Cédula no encontrada"
-      redirect_to :action => "index"
-      return   
-    end
-
-    CorreosUsuario.correo_olvide_mi_clave(usuario).deliver
-    bitacora "Se envio un correo al usuario #{usuario.nombre_completo} para recuperar su clave"
-    flash[:mensaje] = "Correo enviado exitósamente para recuperar la clave"
-    redirect_to :action => "index"
-    return
-
   end
 end
