@@ -2,20 +2,44 @@
 %html{:lang => "es"}
   %head
     %meta{:charset => "utf-8"}
-      %title Entregas
-      = stylesheet_link_tag    "application", :media => "all"
-      = javascript_include_tag "application"
+      %title= yield(:title)
+      = stylesheet_link_tag    "buttons"
+      = stylesheet_link_tag    "icon"
+      = stylesheet_link_tag    "tipsy"
+      = stylesheet_link_tag    "ui-custom"
+      = stylesheet_link_tag    "bootstrap"
+
+      = javascript_include_tag "zice.custom"
+      = javascript_include_tag "jquery.min"
+      = javascript_include_tag 'jquery-jrumble'
+      = javascript_include_tag 'jquery.ui.min'
+      = javascript_include_tag 'jquery.tipsy'
+      = javascript_include_tag 'iphone.check'
+      = javascript_include_tag 'login'
+      = stylesheet_link_tag    "tipsy"
       = csrf_meta_tags
-  %body
-    .container
-      .page-header.well
-        .row
-          .span7
-            .logo
-          .span4
-            .headername
-              #{session[:usuario].nombre_completo}
-      =yield
-      %hr/
-      %footer
-        %p © LABATI 2012 - JUAN CAMEJO / ALEJANDRO PARDO
+  %body.dashborad
+    #header
+      #account_info
+        =image_tag("avatar.png")
+        .setting 
+          Bienvenido, #{session[:usuario].nombre_completo}
+          =image_tag("gear.png")
+        .logout 
+          Desconectarse
+          =image_tag("connect.png")
+    #shadowhead
+      #hide_panel
+        =link_to "0", :class => "butAcc", :id => "show_menu"
+        =link_to "1", :class => "butAcc", :id => "hide_menu"
+        =link_to "0", :class => "butAcc", :id => "show_menu_icon"
+        =link_to "1", :class => "butAcc", :id => "hide_menu_icon"
+      #left_menu
+        %ul#main_menu.main_menu
+          %li.limenu.select
+            %span.ico.gray.shadow.home
+              =link_to "Dashboard", {:action => "bienvenida", :controller => "principal"}
+    =yield
+  .clear
+  #versionBar
+    .copyright &copy; Copyright 2012  Todos los derechos reservados Rodriguez Marchesini y Asociados, C.A.
