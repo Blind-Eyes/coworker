@@ -53,7 +53,6 @@ var buttonActions = {
 		  $('#show_menu_icon').show();	
 	  },
 	  'close_windows':function(){
-		  $.fancybox.close(); 
 		  ResetForm();
 	}	
 }
@@ -315,70 +314,13 @@ $(function() {
 	$('.iconBox, div.logout').tipsy({gravity: 'ne',live: true });	
 	$('.flot-graph').tipsy({gravity: 'ne',live: true ,trigger: 'click',});	
 
-	// fancybox 
-	$(".pop_box").fancybox({ 'showCloseButton': false, 'hideOnOverlayClick'	:	false });	
-	$('.albumImage').dblclick(function(){
-		  $("a[rel=glr]").fancybox({  'showCloseButton': true,'centerOnScroll' : true, 'overlayOpacity' : 0.8,'padding' : 0 });
-		  $(this).find('a').trigger('click');
-	})
-		function test(value){
-                alert("This rating's value is "+value);
-     }
-	
 	// rating_star
 	$("#rating_star").rating_star({
 						rating_star_length: '10',
 						rating_initial_value: '3'
 	 });
 
-	  // profile webcam 
-	  var camera = $('#camera'),screen =  $('#screen');	
-	  webcam.set_api_url('upload.php');	
-	  screen.html(
-		  webcam.get_html(screen.width(), screen.height())
-	  );
-	  var shootEnabled = false;
-	  $(".takeWebcam").click(function(){
-		  $(".webcam").show('blind');
-		  return false;
-	  });
-	  $("#closeButton").click(function(){
-		  $(".webcam").hide('blind');
-		  return false;
-	  });
-	  $('#takeButton').click(function(){
-		  if(!shootEnabled){
-			  return false;
-		  }
-		  webcam.freeze();
-		  togglePane()
-		  return false;
-	  });
-	  $('#retakeButton').click(function(){
-		  webcam.reset();
-		  togglePane()
-		  return false;
-	  });	
-	  $('#uploadAvatar').click(function(){
-		  webcam.upload();
-		  togglePane()
-		  webcam.reset();
-		  return false;
-	  });
-	  webcam.set_hook('onLoad',function(){
-		  shootEnabled = true;
-	  });
-	  webcam.set_hook('onError',function(e){
-		  screen.html(e);
-	  });
-	  function togglePane(){
-		  var visible = $(' .buttonPane:visible:first');
-		  var hidden = $(' .buttonPane:hidden:first');	
-		  visible.fadeOut('fast',function(){
-			  hidden.show();
-		  });
-	  }
-	  
+	 
 	  	// images  editor tranfer
 		$('#reflect').click(function() {
 						$('.animate').animate({"reflect": true});	 
@@ -470,47 +412,6 @@ $(function() {
 	
 	// upload
 	   $("input.fileupload").filestyle();
-	// mutiupload
-	  $('.uploadFile').live('click',function(){
-		  $('#uploadify').uploadifyUpload(); 	
-		   showSuccess('Uploading...');
-	  })		
-	  $('#uploadify').uploadify({
-	  'uploader'  : 'components/uploadify/uploadify.swf',
-	  'script'    : 'components/uploadify/uploadify.php',
-	  'cancelImg' : 'components/uploadify/cancel.png',
-	  'folder'    : 'uploads',
-	  'method'	: 'GET',
-	  'multi': true, 'auto': false,'fileExt': '*.jpg;*.gif;*.png','fileDesc': 'Image Files (.JPG, .GIF, .PNG)',
-	  'queueID'        : 'custom-queue',
-	  'wmode'		: 'transparent',
-	  'hideButton': true,
-	  'width': 92,'height': 26,
-	  'sizeLimit'	: parseInt($('#maxUploadFileSize').text()),
-		  'onClearQueue' : function(event) {
-			  $('#upload_c').removeClass('special').addClass('disable');
-			  $('#uploadFile').removeClass('uploadFile confirm ').addClass('disable');	 
-			  $('#status-message').html(' ');
-			},
-		'onSelectOnce'   : function(event,data) {
-			  $('#upload_c').removeClass('disable').addClass('special');
-			  $('#uploadButtondisable').css({'display':'none'});
-			  $('#uploadFile').removeClass('disable').addClass('uploadFile confirm ');	 
-			  $('#status-message').html('Ready');
-			},
-		  'onAllComplete'  : function(event,data) {
-		  if(data.errors){
-						$('#status-message').html('Complete '+ data.filesUploaded + ' file , <font color=red>and ' + data.errors + ' file donot Complete </font>.');
-						showError('uploadComplete'+ data.filesUploaded + 'file , <font color=red>and ' + data.errors + ' file donot Complete </font>.',7000);
-						
-				  }else{
-						  $('#status-message').html('Complete '+ data.filesUploaded + ' file');
-						  showSuccess('uploadComplete '+ data.filesUploaded  +' File',7000);
-						  setTimeout('$.fancybox.close()',1500);  // uploadmodal with close  ;
-				 }
-			}
-		});	
-	
 	
 	// Sortable
 	$("#picThumb").sortable({
@@ -845,32 +746,6 @@ $(function() {
     );
 	
 
-	// filemanager. 
-	// onload
-	$('#finder').elfinder({
-		url : 'components/elfinder/connectors/php/connector-fileimport.php',
-		docked : true,dialog : { title : 'File manager',modal : true,width : 700 }
-	})
-	// on click
-	$('#filemanager').click(function(){	
-		  var callback=$(this).attr('id');
-		  var type=$(this).attr('title');
-		  fileDialog(callback,type);					   
-	});
-	// on click callback
-	$('#open_icon,#open_icon2,#open_icon3').click(function(){	
-		  var callback=$(this).attr('id');
-		  var type=$(this).attr('title');
-		   var input=$(this).attr('rel');
-		  fileDialogCallback(callback,type,input);					   
-	});
-	// on focus  callback
-	$('.fileDialog').live('focus',function(){
-		  var callback,input =$(this).attr('id');
-		  var type=$(this).attr('title');
-		  fileDialogCallback(callback,type,input);										
-	})
-
 
 	// Confirm Delete.
 	$(".Delete").live('click',function() { 
@@ -1170,21 +1045,6 @@ $(function() {
 	}		
 	if(mybrowser.indexOf('Safari')>0){}		
 
-
-
-	  
-	  
-	  function fileDialogCallback(callback,type,input){
-			$('<div id="finder_'+callback+'"/>').elfinder({
-				 url : 'components/elfinder/connectors/php/connector-'+type+'.php', editorCallback : function(url) { $('#'+input).val(url);
-				},closeOnEditorCallback : true, dialog : { title : 'File manager',modal : true,width : 700 }
-			})							   
-	  }
-	  function fileDialog(callback,type){
-			$('<div id="finder_'+callback+'"/>').elfinder({
-				  url : 'components/elfinder/connectors/php/connector-'+type+'.php',dialog : { title : 'File manager',modal : true,width : 700 }
-			})							   
-	  }
 		  
 function Delete(data,name,row,type,dataSet){
 		var loadpage = dataSet.hdata(0);
@@ -1320,9 +1180,6 @@ $.confirm({
 	   }
 	   
 	   
-	  function unloading() { 
-			$('#preloader').fadeOut(400,function(){ $('#overlay').fadeOut(); $.fancybox.close(); }).remove();
-	   }
 	
  function imgRow(){	
 		var maxrow=$('.albumpics').width();

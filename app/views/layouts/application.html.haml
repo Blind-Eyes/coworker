@@ -3,42 +3,140 @@
   %head
     %meta{:charset => "utf-8"}
       %title= yield(:title)
-      = stylesheet_link_tag    "buttons"
-      = stylesheet_link_tag    "icon"
-      = stylesheet_link_tag    "tipsy"
       = stylesheet_link_tag    "ui-custom"
       = stylesheet_link_tag    "bootstrap"
+      = stylesheet_link_tag    "zice.style"
 
-      = javascript_include_tag "zice.custom"
       = javascript_include_tag "jquery.min"
-      = javascript_include_tag 'jquery-jrumble'
       = javascript_include_tag 'jquery.ui.min'
+      = javascript_include_tag 'jquery.autotab'
+      = javascript_include_tag 'timepicker'
+      = javascript_include_tag 'colorpicker'
+      = javascript_include_tag "iphone.check"
+      = javascript_include_tag "dataTables.min"
+      = javascript_include_tag 'scrolltopcontrol'
+      = javascript_include_tag 'mousewheel'
+      = javascript_include_tag 'mwheelIntent'
+      = javascript_include_tag "jscrollpane.min"
+      = javascript_include_tag "ui.spinner"
       = javascript_include_tag 'jquery.tipsy'
-      = javascript_include_tag 'iphone.check'
-      = javascript_include_tag 'login'
-      = stylesheet_link_tag    "tipsy"
+      = javascript_include_tag 'jquery.cleditor'
+      = javascript_include_tag 'chosen'
+      = javascript_include_tag 'jquery.confirm'
+      = javascript_include_tag "jquery.validationEngine"
+      = javascript_include_tag "jquery.validationEngine-en"
+      = javascript_include_tag 'jquery.vticker-min'
+      = javascript_include_tag 'sourcerer'
+      = javascript_include_tag 'fullcalendar'
+      = javascript_include_tag 'flot'
+      = javascript_include_tag "flot.pie.min"
+      = javascript_include_tag "flot.resize.min"
+      = javascript_include_tag "graphtable"
+      = javascript_include_tag 'customInput.jquery'
+      = javascript_include_tag 'jquery-jrumble'
+      = javascript_include_tag 'jquery.filestyle'
+      = javascript_include_tag "jquery.placeholder"
+      = javascript_include_tag "jquery.Jcrop"
+      = javascript_include_tag 'jquery.transform'
+      = javascript_include_tag 'rating_star'
+      = javascript_include_tag 'dualListBox'
+      = javascript_include_tag 'jquery.smartWizard.min'
+      = javascript_include_tag "jquery.cookie"
+      = javascript_include_tag "zice.custom"
+
       = csrf_meta_tags
   %body.dashborad
+    #alertMessage.error
     #header
       #account_info
-        =image_tag("avatar.png")
-        .setting 
-          Bienvenido, #{session[:usuario].nombre_completo}
-          =image_tag("gear.png")
-        .logout 
-          Desconectarse
-          =image_tag("connect.png")
+        %img.avatar{:alt => "Online", :src => "../assets/avatar.png"}
+        .setting{:title => "Profile Setting"}
+          %b Welcome,
+          %b.red John Doe
+          %img.gear{:alt => "Profile Setting", :src => "../assets/gear.png"}
+        .logout{:title => "Disconnect"}
+          %b Logout
+          %img.disconnect{:alt => "disconnect", :name => "connect", :src => "../assets/connect.png"}
+    / //  header
     #shadowhead
-      #hide_panel
-        =link_to "0", :class => "butAcc", :id => "show_menu"
-        =link_to "1", :class => "butAcc", :id => "hide_menu"
-        =link_to "0", :class => "butAcc", :id => "show_menu_icon"
-        =link_to "1", :class => "butAcc", :id => "hide_menu_icon"
-      #left_menu
-        %ul#main_menu.main_menu
-          %li.limenu.select
+    #hide_panel
+      %a#show_menu.butAcc{:rel => "0"}
+      %a#hide_menu.butAcc{:rel => "1"}
+      %a#show_menu_icon.butAcc{:rel => "0"}
+      %a#hide_menu_icon.butAcc{:rel => "1"}
+    #left_menu
+      %ul#main_menu.main_menu
+        %li.limenu.select
+          %a{:href => "dashboard.html"}
             %span.ico.gray.shadow.home
-              =link_to "Dashboard", {:action => "bienvenida", :controller => "principal"}
+            %b Dashboard
+        %li.limenu
+          %a{:href => "#"}
+            %span.ico.gray.shadow.window
+            %b Form elements
+          %ul
+            %li
+              %a{:href => "form.html"} basic form
+            %li
+              %a{:href => "vform.html"} validation
+            %li
+              %a{:href => "wizard.html"} wizard
+        %li.limenu
+          %a{:href => "#"}
+            %span.ico.gray.dimensions
+            %b Sample pages
+          %ul
+            %li
+              %a{:href => "profile.html"} Profile setting
+            %li
+              %a{:href => "conversation.html"} conversation
+            %li
+              %a{:href => "imagesEditor.html"} Images Editor
+        %li.limenu
+          %a{:href => "table.html"}
+            %span.ico.gray.shadow.spreadsheet
+            %b Tables
+        %li.limenu
+          %a{:href => "gallery.html"}
+            %span.ico.gray.shadow.pictures_folder
+            %b Gallery
+        %li.limenu
+          %a{:href => "#"}
+            %span.ico.gray.shadow.stats_lines
+            %b Graph and Charts
+          %ul
+            %li
+              %a.pop_box{:href => "modalchartLive.html"} live chart
+            %li
+              %a{:href => "chart.html"} all chart
+        %li.limenu
+          %a{:href => "filemanager.html"}
+            %span.ico.gray.shadow.file
+            %b File manager
+        %li.limenu
+          %a{:href => "calendar.html"}
+            %span.ico.gray.shadow.calendar
+            %b Calendar
+        %li.limenu
+          %a{:href => "typography.html"}
+            %span.ico.gray.shadow.paragraph_align_left
+            %b Typography
+        %li.limenu
+          %a{:href => "inelement.html"}
+            %span.ico.gray.shadow.abacus
+            %b Interface elements
+        %li.limenu
+          %a{:href => "map.html"}
+            %span.ico.gray.shadow.location
+            %b Map location
+        %li.limenu
+          %a{:href => "icon.html"}
+            %span.ico.gray.shadow.satellite
+            %b Icon and Button
+        %li.limenu
+          %a{:href => "404.html"}
+            %span.ico.gray.shadow.firewall
+            %b Error Pages
     =yield
   .clear
   #versionBar

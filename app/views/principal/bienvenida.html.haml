@@ -1,448 +1,356 @@
 -content_for(:title, 'Coworker - Dashboard')
-%body.dashborad
-  #alertMessage.error
-  #header
-    #account_info
-      %img.avatar{:alt => "Online", :src => "images/avatar.png"}/
-      .setting{:title => "Profile Setting"}
-        %b Welcome,
-        %b.red John Doe
-        %img.gear{:alt => "Profile Setting", :src => "images/gear.png"}/
-      .logout{:title => "Disconnect"}
-        %b Logout
-        %img.disconnect{:alt => "disconnect", :name => "connect", :src => "images/connect.png"}/
-  / //  header
-  #shadowhead
-  #hide_panel
-    %a#show_menu.butAcc{:rel => "0"}
-    %a#hide_menu.butAcc{:rel => "1"}
-    %a#show_menu_icon.butAcc{:rel => "0"}
-    %a#hide_menu_icon.butAcc{:rel => "1"}
-  #left_menu
-    %ul#main_menu.main_menu
-      %li.limenu.select
-        %a{:href => "dashboard.html"}
-          %span.ico.gray.shadow.home
-          %b Dashboard
-      %li.limenu
-        %a{:href => "#"}
-          %span.ico.gray.shadow.window
-          %b Form elements
-        %ul
-          %li
-            %a{:href => "form.html"} basic form
-          %li
-            %a{:href => "vform.html"} validation
-          %li
-            %a{:href => "wizard.html"} wizard
-      %li.limenu
-        %a{:href => "#"}
-          %span.ico.gray.dimensions
-          %b Sample pages
-        %ul
-          %li
-            %a{:href => "profile.html"} Profile setting
-          %li
-            %a{:href => "conversation.html"} conversation
-          %li
-            %a{:href => "imagesEditor.html"} Images Editor
-      %li.limenu
-        %a{:href => "table.html"}
-          %span.ico.gray.shadow.spreadsheet
-          %b Tables
-      %li.limenu
-        %a{:href => "gallery.html"}
-          %span.ico.gray.shadow.pictures_folder
-          %b Gallery
-      %li.limenu
-        %a{:href => "#"}
-          %span.ico.gray.shadow.stats_lines
-          %b Graph and Charts
-        %ul
-          %li
-            %a.pop_box{:href => "modalchartLive.html"} live chart
-          %li
-            %a{:href => "chart.html"} all chart
-      %li.limenu
-        %a{:href => "filemanager.html"}
-          %span.ico.gray.shadow.file
-          %b File manager
-      %li.limenu
-        %a{:href => "calendar.html"}
-          %span.ico.gray.shadow.calendar
-          %b Calendar
-      %li.limenu
-        %a{:href => "typography.html"}
-          %span.ico.gray.shadow.paragraph_align_left
-          %b Typography
-      %li.limenu
-        %a{:href => "inelement.html"}
-          %span.ico.gray.shadow.abacus
-          %b Interface elements
-      %li.limenu
-        %a{:href => "map.html"}
-          %span.ico.gray.shadow.location
-          %b Map location
-      %li.limenu
-        %a{:href => "icon.html"}
-          %span.ico.gray.shadow.satellite
-          %b Icon and Button
-      %li.limenu
-        %a{:href => "404.html"}
-          %span.ico.gray.shadow.firewall
-          %b Error Pages
-  #content
-    .inner
-      .topcolumn
-        .logo
-        %ul#shortcut
-          %li
-            %a{:href => "#", :title => "Back To home"}
-              %img{:alt => "home", :src => "images/icon/shortcut/home.png"}/
-              %strong Home
-          %li
-            %a{:href => "#", :title => "Website Graph"}
-              %img{:alt => "graph", :src => "images/icon/shortcut/graph.png"}/
-              %strong Graph
-          %li
-            %a{:href => "#", :title => "Setting"}
-              %img{:alt => "setting", :src => "images/icon/shortcut/setting.png"}/
-              %strong Setting
-          %li
-            %a{:href => "#", :title => "Messages"}
-              %img{:alt => "messages", :src => "images/icon/shortcut/mail.png"}/
-              %strong Message
-            .notification 10
+#content
+  .inner
+    .topcolumn
+      .logo
+      %ul#shortcut
+        %li
+          %a{:href => "#", :title => "Back To home"}
+            %img{:alt => "home", :src => "images/icon/shortcut/home.png"}/
+            %strong Home
+        %li
+          %a{:href => "#", :title => "Website Graph"}
+            %img{:alt => "graph", :src => "images/icon/shortcut/graph.png"}/
+            %strong Graph
+        %li
+          %a{:href => "#", :title => "Setting"}
+            %img{:alt => "setting", :src => "images/icon/shortcut/setting.png"}/
+            %strong Setting
+        %li
+          %a{:href => "#", :title => "Messages"}
+            %img{:alt => "messages", :src => "images/icon/shortcut/mail.png"}/
+            %strong Message
+          .notification 10
+    .clear
+    .onecolumn
+      .header
+        %span
+          %span.ico.gray.home
+          Site Data manager
       .clear
+      .content
+        .boxtitle.min website status
+        .grid2
+          %table.chart-pie{:style => "width : 100%;"}
+            %thead
+              %tr
+                %th
+                %th{:style => "color : #aed741;"} Product Review
+                %th{:style => "color : #bedd17;"} Webboard
+                %th{:style => "color : #c3e171;"} Article
+                %th{:style => "color : #85b501;"} Other
+            %tbody
+              %tr
+                %th
+                %td 75
+                %td 10
+                %td 9
+                %td 6
+          .chart-pie-shadow
+          .chart_title
+            %span Pages is popular  in your web
+        .grid2
+          .inner
+            %form{:action => "#"}
+              .section
+                %label
+                  Website Name
+                  %small Text custom
+                %div
+                  %input#sitename.full{:name => "sitename", :type => "text", :value => "Yoursite.com"}/
+              .section
+                %label
+                  Website title
+                  %small Text custom
+                %div
+                  %input.full{:name => "sitename", :type => "text"}/
+              .section
+                %label
+                  Status
+                  %small website status
+                %div
+                  %input#online.online{:checked => "checked", :name => "online", :type => "checkbox", :value => "1"}/
+              .section
+                %label
+                  SEO metaTag
+                  %small Text custom
+                %div
+                  %select.chzn-select{:multiple => "multiple", :tabindex => "4"}
+                    %option{:value => ""}
+                    %option{:selected => "selected", :value => ""} webstie
+                    %option{:selected => "selected", :value => ""} data manager
+                    %option{:selected => "selected", :value => ""} shopping
+                    %option{:selected => "selected", :value => ""} appication
+                    %option{:value => ""} webdesign
+                    %option{:value => ""} admin template
+                    %option{:value => ""} icon
+                    %option{:value => ""} your tag
+              .section.last
+                %div
+                  %a.uibutton.loading{:rel => "1", :title => "Saving"} save
+                  %a.uibutton.special button
+                  %a.uibutton.confirm button
+        .clear
+    / // End onecolumn
+    .onecolumn
+      .header
+        %span
+          %span.ico.gray.stats_lines>
+          Site Statistics
+      .clear
+      .content
+        %br.clear/
+        .grid1.rightzero
+          .shoutcutBox
+            %span.ico.color.chat-exclamation
+            %strong 23
+            %em pending orders
+          .breaks
+            %span
+          / // breaks
+          .shoutcutBox
+            %span.ico.color.item
+            %strong 1,538
+            %em Item in shop
+          .shoutcutBox
+            %span.ico.color.group
+            %strong 4,452
+            %em Total Member
+          .shoutcutBox
+            %span.ico.color.emoticon_grin
+            %strong 152
+            %em New  Register
+          .breaks
+            %span
+          / // breaks
+          .shoutcutBox
+            %span.ico.color.emoticon_in_love
+            %strong 359
+            %em Today view pages
+          .shoutcutBox.last
+            %span.ico.color.connect
+            %strong 152
+            %em user online
+        .grid3
+          %div{:style => "width:100%;height:415px; margin-left:25px"}
+            %table.chart{:style => "width : 100%;"}
+              %thead
+                %tr
+                  %th{:width => "10%"}
+                  %th{:style => "color : #bedd17;", :width => "25%"} Demo
+              %tbody
+                %tr
+                  %th 1
+                  %td 700
+                %tr
+                  %th 2
+                  %td 500
+                %tr
+                  %th 3
+                  %td 650
+                %tr
+                  %th 4
+                  %td 400
+                %tr
+                  %th 5
+                  %td 650
+                %tr
+                  %th 6
+                  %td 750
+                %tr
+                  %th 7
+                  %td 550
+        .clear
+    / // End onecolumn
+    / // two column window
+    .column_left
       .onecolumn
         .header
           %span
-            %span.ico.gray.home
-            Site Data manager
-        .clear
-        .content
-          .boxtitle.min website status
-          .grid2
-            %table.chart-pie{:style => "width : 100%;"}
-              %thead
-                %tr
-                  %th
-                  %th{:style => "color : #aed741;"} Product Review
-                  %th{:style => "color : #bedd17;"} Webboard
-                  %th{:style => "color : #c3e171;"} Article
-                  %th{:style => "color : #85b501;"} Other
-              %tbody
-                %tr
-                  %th
-                  %td 75
-                  %td 10
-                  %td 9
-                  %td 6
-            .chart-pie-shadow
-            .chart_title
-              %span Pages is popular  in your web
-          .grid2
-            .inner
-              %form{:action => "#"}
-                .section
-                  %label
-                    Website Name
-                    %small Text custom
-                  %div
-                    %input#sitename.full{:name => "sitename", :type => "text", :value => "Yoursite.com"}/
-                .section
-                  %label
-                    Website title
-                    %small Text custom
-                  %div
-                    %input.full{:name => "sitename", :type => "text"}/
-                .section
-                  %label
-                    Status
-                    %small website status
-                  %div
-                    %input#online.online{:checked => "checked", :name => "online", :type => "checkbox", :value => "1"}/
-                .section
-                  %label
-                    SEO metaTag
-                    %small Text custom
-                  %div
-                    %select.chzn-select{:multiple => "multiple", :tabindex => "4"}
-                      %option{:value => ""}
-                      %option{:selected => "selected", :value => ""} webstie
-                      %option{:selected => "selected", :value => ""} data manager
-                      %option{:selected => "selected", :value => ""} shopping
-                      %option{:selected => "selected", :value => ""} appication
-                      %option{:value => ""} webdesign
-                      %option{:value => ""} admin template
-                      %option{:value => ""} icon
-                      %option{:value => ""} your tag
-                .section.last
-                  %div
-                    %a.uibutton.loading{:rel => "1", :title => "Saving"} save
-                    %a.uibutton.special button
-                    %a.uibutton.confirm button
-          .clear
-      / // End onecolumn
+            %span.ico.gray.notepad
+            Last Contact
+        %br.clear/
+        .content.tableName
+          %table.display.data_table
+            %thead
+              %tr
+                %th{:width => "224"}
+                  %div{:style => "text-align:left; margin-left:10px"} Topic
+                %th{:width => "195"}
+                  %div{:style => "text-align:right; "} Date
+            %tbody
+              %tr
+                %td
+                  .msg
+                    .msg_icon.new
+                    .msg_topic
+                      %strong SystemSite
+                      %span Topic name
+                %td
+                  .msg_date
+                    a few seconds ago
+                    %span 2012/02/02
+              %tr
+                %td
+                  .msg
+                    .msg_icon.new
+                    .msg_topic
+                      %strong Pinyo
+                      %span Topic  name
+                %td
+                  .msg_date
+                    55 seconds ago
+                    %span 2012/02/02
+              %tr
+                %td
+                  .msg
+                    .msg_icon.new
+                    .msg_topic
+                      %strong John Doe
+                      %span Topic name
+                %td
+                  .msg_date
+                    45 minute ago
+                    %span 2012/02/02
+              %tr
+                %td
+                  .msg
+                    .msg_icon.open
+                    .msg_topic
+                      John Doe
+                      %span Topic name
+                %td
+                  .msg_date
+                    10 day ago
+                    %span 2012/02/02
+              %tr
+                %td
+                  .msg
+                    .msg_icon.open
+                    .msg_topic
+                      Sineeya
+                      %span Topic  name
+                %td
+                  .msg_date
+                    10 day ago
+                    %span 2012/02/02
+              %tr
+                %td
+                  .msg
+                    .msg_icon.ans
+                    .msg_topic
+                      Lanna
+                      %span RE: Topic name
+                %td
+                  .msg_date
+                    19 day ago
+                    %span 2012/02/02
+              %tr
+                %td
+                  .msg
+                    .msg_icon.new
+                    .msg_topic
+                      %strong Romace
+                      %span Topic name
+                %td
+                  .msg_date
+                    25 day ago
+                    %span 2012/02/02
+              %tr
+                %td
+                  .msg
+                    .msg_icon.open
+                    .msg_topic
+                      Meny Chaiya
+                      %span Topic name
+                %td
+                  .msg_date
+                    2 Months.
+                    %span 2012/01/02
+    .column_right
       .onecolumn
         .header
           %span
-            %span.ico.gray.stats_lines>
-            Site Statistics
-        .clear
+            %span.ico.gray.access_point
+            New update
+        %br.clear/
         .content
-          %br.clear/
-          .grid1.rightzero
-            .shoutcutBox
-              %span.ico.color.chat-exclamation
-              %strong 23
-              %em pending orders
-            .breaks
-              %span
-            / // breaks
-            .shoutcutBox
-              %span.ico.color.item
-              %strong 1,538
-              %em Item in shop
-            .shoutcutBox
-              %span.ico.color.group
-              %strong 4,452
-              %em Total Member
-            .shoutcutBox
-              %span.ico.color.emoticon_grin
-              %strong 152
-              %em New  Register
-            .breaks
-              %span
-            / // breaks
-            .shoutcutBox
-              %span.ico.color.emoticon_in_love
-              %strong 359
-              %em Today view pages
-            .shoutcutBox.last
-              %span.ico.color.connect
-              %strong 152
-              %em user online
-          .grid3
-            %div{:style => "width:100%;height:415px; margin-left:25px"}
-              %table.chart{:style => "width : 100%;"}
-                %thead
-                  %tr
-                    %th{:width => "10%"}
-                    %th{:style => "color : #bedd17;", :width => "25%"} Demo
-                %tbody
-                  %tr
-                    %th 1
-                    %td 700
-                  %tr
-                    %th 2
-                    %td 500
-                  %tr
-                    %th 3
-                    %td 650
-                  %tr
-                    %th 4
-                    %td 400
-                  %tr
-                    %th 5
-                    %td 650
-                  %tr
-                    %th 6
-                    %td 750
-                  %tr
-                    %th 7
-                    %td 550
-          .clear
-      / // End onecolumn
-      / // two column window
-      .column_left
-        .onecolumn
-          .header
-            %span
-              %span.ico.gray.notepad
-              Last Contact
-          %br.clear/
-          .content.tableName
-            %table.display.data_table
-              %thead
-                %tr
-                  %th{:width => "224"}
-                    %div{:style => "text-align:left; margin-left:10px"} Topic
-                  %th{:width => "195"}
-                    %div{:style => "text-align:right; "} Date
-              %tbody
-                %tr
-                  %td
-                    .msg
-                      .msg_icon.new
-                      .msg_topic
-                        %strong SystemSite
-                        %span Topic name
-                  %td
-                    .msg_date
-                      a few seconds ago
-                      %span 2012/02/02
-                %tr
-                  %td
-                    .msg
-                      .msg_icon.new
-                      .msg_topic
-                        %strong Pinyo
-                        %span Topic  name
-                  %td
-                    .msg_date
-                      55 seconds ago
-                      %span 2012/02/02
-                %tr
-                  %td
-                    .msg
-                      .msg_icon.new
-                      .msg_topic
-                        %strong John Doe
-                        %span Topic name
-                  %td
-                    .msg_date
-                      45 minute ago
-                      %span 2012/02/02
-                %tr
-                  %td
-                    .msg
-                      .msg_icon.open
-                      .msg_topic
-                        John Doe
-                        %span Topic name
-                  %td
-                    .msg_date
-                      10 day ago
-                      %span 2012/02/02
-                %tr
-                  %td
-                    .msg
-                      .msg_icon.open
-                      .msg_topic
-                        Sineeya
-                        %span Topic  name
-                  %td
-                    .msg_date
-                      10 day ago
-                      %span 2012/02/02
-                %tr
-                  %td
-                    .msg
-                      .msg_icon.ans
-                      .msg_topic
-                        Lanna
-                        %span RE: Topic name
-                  %td
-                    .msg_date
-                      19 day ago
-                      %span 2012/02/02
-                %tr
-                  %td
-                    .msg
-                      .msg_icon.new
-                      .msg_topic
-                        %strong Romace
-                        %span Topic name
-                  %td
-                    .msg_date
-                      25 day ago
-                      %span 2012/02/02
-                %tr
-                  %td
-                    .msg
-                      .msg_icon.open
-                      .msg_topic
-                        Meny Chaiya
-                        %span Topic name
-                  %td
-                    .msg_date
-                      2 Months.
-                      %span 2012/01/02
-      .column_right
-        .onecolumn
-          .header
-            %span
-              %span.ico.gray.access_point
-              New update
-          %br.clear/
-          .content
-            #news_update{:style => "position: relative;"}
-              %ul{:style => "position: absolute; margin: 0pt; padding: 0pt; top: 0px; width: 100%;"}
-                %li
-                  .temp_news
-                    %img{:alt => "emptyimg", :src => "exampic/25.jpg"}/
-                  .detail_news
-                    .boxtitle.min New update, topic 1
-                    %p
-                      Lorem ipsum dolor sit amet, consectetur
-                      adipiscing elit. Quisque non leo
-                      convallis nibh tristique commodo.
-                    %span.datepost 02/25/2012
-                    %span.morelink
-                      %a.red{:href => "#"} more
-                  %br.clear/
-                %li
-                  .temp_news
-                    %img{:alt => "emptyimg", :src => "exampic/23.jpg"}/
-                  .detail_news
-                    .boxtitle.min New update , topic 2
-                    %p
-                      Lorem ipsum dolor sit amet, consectetur
-                      adipiscing elit. Quisque non leo
-                      convallis nibh tristique commodo.
-                    %span.datepost 02/25/2012
-                    %span.morelink
-                      %a.red{:href => "#"} more
-                  %br.clear/
-                %li
-                  .temp_news
-                    %img{:alt => "emptyimg", :src => "exampic/26.jpg"}/
-                  .detail_news
-                    .boxtitle.min New update , topic 3
-                    %p
-                      Lorem ipsum dolor sit amet, consectetur
-                      adipiscing elit. Quisque non leo
-                      convallis nibh tristique commodo.
-                    %span.datepost 02/25/2012
-                    %span.morelink
-                      %a.red{:href => "#"} more
-                  %br.clear/
-        .onecolumn
-          .header
-            %span
-              %span.ico.gray.record
-              Welcome  to site
-          %br.clear/
-          .content
-            .boxtitle.min Welcome to site ,or your information data
-            %p.overflow{:style => "height:165px"}
-              Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Quisque non leo convallis nibh tristique commodo.
-              Cras tincidunt hendrerit pharetra. Etiam erat magna,
-              egestas sed placerat at, congue sed nisi. Nullam
-              eget varius leo. Integer at justo a velit imperdiet
-              pulvinar. Sed magna mi, sodales sit amet aliquet
-              ac, eleifend eget sem. Nam ipsum lectus, fringilla
-              sed rutrum ac, tempus in orci. Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Quisque non leo convallis nibh tristique commodo.
-              Cras tincidunt hendrerit pharetra. Etiam erat magna,
-              egestas sed placerat at, congue sed nisi. Nullam
-              eget varius leo. Integer at justo a velit imperdiet
-              pulvinar. Sed magna mi, sodales sit amet aliquet
-              ac, eleifend eget sem. Nam ipsum lectus, fringilla
-              sed rutrum ac, tempus in orci.  Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Quisque non leo convallis nibh tristique commodo.
-              Cras tincidunt hendrerit pharetra. Etiam erat magna,
-              egestas sed placerat at, congue sed nisi. Nullam
-              eget varius leo. Integer at justo a velit imperdiet
-              pulvinar. Sed magna mi, sodales sit amet aliquet
-              ac, eleifend eget sem. Nam ipsum lectus, fringilla
-              sed rutrum ac, tempus in orci.
-      .clear
-      #footer
-        \© Copyright 2012
-        %span.tip
-          %a{:href => "#", :title => "Zice Admin"} Your Company Name
-    / // End inner
-  / // End content
+          #news_update{:style => "position: relative;"}
+            %ul{:style => "position: absolute; margin: 0pt; padding: 0pt; top: 0px; width: 100%;"}
+              %li
+                .temp_news
+                  %img{:alt => "emptyimg", :src => "exampic/25.jpg"}/
+                .detail_news
+                  .boxtitle.min New update, topic 1
+                  %p
+                    Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Quisque non leo
+                    convallis nibh tristique commodo.
+                  %span.datepost 02/25/2012
+                  %span.morelink
+                    %a.red{:href => "#"} more
+                %br.clear/
+              %li
+                .temp_news
+                  %img{:alt => "emptyimg", :src => "exampic/23.jpg"}/
+                .detail_news
+                  .boxtitle.min New update , topic 2
+                  %p
+                    Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Quisque non leo
+                    convallis nibh tristique commodo.
+                  %span.datepost 02/25/2012
+                  %span.morelink
+                    %a.red{:href => "#"} more
+                %br.clear/
+              %li
+                .temp_news
+                  %img{:alt => "emptyimg", :src => "exampic/26.jpg"}/
+                .detail_news
+                  .boxtitle.min New update , topic 3
+                  %p
+                    Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Quisque non leo
+                    convallis nibh tristique commodo.
+                  %span.datepost 02/25/2012
+                  %span.morelink
+                    %a.red{:href => "#"} more
+                %br.clear/
+      .onecolumn
+        .header
+          %span
+            %span.ico.gray.record
+            Welcome  to site
+        %br.clear/
+        .content
+          .boxtitle.min Welcome to site ,or your information data
+          %p.overflow{:style => "height:165px"}
+            Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Quisque non leo convallis nibh tristique commodo.
+            Cras tincidunt hendrerit pharetra. Etiam erat magna,
+            egestas sed placerat at, congue sed nisi. Nullam
+            eget varius leo. Integer at justo a velit imperdiet
+            pulvinar. Sed magna mi, sodales sit amet aliquet
+            ac, eleifend eget sem. Nam ipsum lectus, fringilla
+            sed rutrum ac, tempus in orci. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Quisque non leo convallis nibh tristique commodo.
+            Cras tincidunt hendrerit pharetra. Etiam erat magna,
+            egestas sed placerat at, congue sed nisi. Nullam
+            eget varius leo. Integer at justo a velit imperdiet
+            pulvinar. Sed magna mi, sodales sit amet aliquet
+            ac, eleifend eget sem. Nam ipsum lectus, fringilla
+            sed rutrum ac, tempus in orci.  Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Quisque non leo convallis nibh tristique commodo.
+            Cras tincidunt hendrerit pharetra. Etiam erat magna,
+            egestas sed placerat at, congue sed nisi. Nullam
+            eget varius leo. Integer at justo a velit imperdiet
+            pulvinar. Sed magna mi, sodales sit amet aliquet
+            ac, eleifend eget sem. Nam ipsum lectus, fringilla
+            sed rutrum ac, tempus in orci.
+    .clear
+    #footer
+      \© Copyright 2012
+      %span.tip
+        %a{:href => "#", :title => "Zice Admin"} Your Company Name
+  / // End inner
+/ // End content
