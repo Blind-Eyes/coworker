@@ -49,14 +49,14 @@
     #alertMessage.error
     #header
       #account_info
-        %img.avatar{:alt => "Online", :src => "../assets/avatar.png"}
-        .setting{:title => "Profile Setting"}
-          %b Welcome,
-          %b.red John Doe
-          %img.gear{:alt => "Profile Setting", :src => "../assets/gear.png"}
-        .logout{:title => "Disconnect"}
+        %img.avatar{:alt => "En Linea", :src => "../assets/avatar.png"}
+        .setting{:title => "Configuracion de Usuario"}
+          %b Bienvenido,
+          %b.SC_gold #{session[:usuario].nombre_completo}
+          %img.gear{:alt => "Configuracion de Usuario", :src => "../assets/gear.png"}
+        .logout{:title => "Desconectarse"}
           %b Logout
-          %img.disconnect{:alt => "disconnect", :name => "connect", :src => "../assets/connect.png"}
+          %img.disconnect{:alt => "Desconectarse", :name => "connect", :src => "../assets/connect.png"}
     / //  header
     #shadowhead
     #hide_panel
@@ -67,20 +67,21 @@
     #left_menu
       %ul#main_menu.main_menu
         %li.limenu.select
-          %a{:href => "dashboard.html"}
+          
+          %a{:href => "bienvenida"}
             %span.ico.gray.shadow.home
-            %b Dashboard
+            %b Principal
         %li.limenu
           %a{:href => "#"}
-            %span.ico.gray.shadow.window
-            %b Form elements
+            %span.ico.gray.shadow.group
+            %b Contribuyentes
           %ul
             %li
-              %a{:href => "form.html"} basic form
+              %a{:href => "contribuyentes"} Consultar
             %li
-              %a{:href => "vform.html"} validation
+              %a{:href => "addContribuyentes"} Agregar
             %li
-              %a{:href => "wizard.html"} wizard
+              %a{:href => "modContribuyentes"} Modificar
         %li.limenu
           %a{:href => "#"}
             %span.ico.gray.dimensions
@@ -138,6 +139,3 @@
             %span.ico.gray.shadow.firewall
             %b Error Pages
     =yield
-  .clear
-  #versionBar
-    .copyright &copy; Copyright 2012  Todos los derechos reservados Rodriguez Marchesini y Asociados, C.A.

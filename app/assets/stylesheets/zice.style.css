@@ -1988,7 +1988,7 @@ a#hide_menu:hover, a#show_menu:hover, a#show_menu_icon:hover, a#hide_menu_icon:h
 #content .inner .logo {
 	float: left;
 	padding: 45px 0 0 0;
-	background-image: url(logo/logo_admin.png);
+	background-image: url(logo/logo_login.png);
 	width: 191px;
 	height: 44px;
 	background-repeat: no-repeat;

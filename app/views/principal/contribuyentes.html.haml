@@ -1,0 +1,968 @@
+-content_for(:title, 'Coworker - Contribuyentes')
+#content
+  .inner
+    .topcolumn
+      .logo
+      %ul#shortcut
+        %li
+          %a{:href => "#", :title => "Back To home"}
+            %img{:alt => "home", :src => "../assets/icon/shortcut/home.png"}/
+            %strong Home
+        %li
+          %a{:href => "#", :title => "Website Graph"}
+            %img{:alt => "graph", :src => "../assets/icon/shortcut/graph.png"}/
+            %strong Graph
+        %li
+          %a{:href => "#", :title => "Setting"}
+            %img{:alt => "setting", :src => "../assets/icon/shortcut/setting.png"}/
+            %strong Setting
+        %li
+          %a{:href => "#", :title => "Messages"}
+            %img{:alt => "messages", :src => "../icon/assets/shortcut/mail.png"}/
+            %strong Message
+          .notification 10
+    .clear
+    .onecolumn
+      .header
+        %span
+          %span.ico.gray.spreadsheet
+          Static table
+      / End header
+      .clear
+      .content
+        %table#static.display.static
+          %thead
+            %tr
+              %th{:width => "35"}
+                %input#checkAll1.checkAll{:type => "checkbox"}/
+              %th{:align => "left", :width => "352"} Name
+              %th{:width => "174"} Type
+              %th{:width => "246"} Show ID
+              %th{:width => "199"} Management
+          %tbody
+            %tr
+              %td{:width => "35"}
+                %input#check1.chkbox{:name => "checkbox[]", :type => "checkbox"}/
+              %td{:align => "left"} A ring
+              %td ring A
+              %td RD115599
+              %td
+                %span.tip
+                  %a{:title => "Edit"}
+                    %img{:src => "images/icon/icon_edit.png"}
+                %span.tip
+                  %a#1.Delete{:name => "Band ring", :title => "Delete"}
+                    %img{:src => "images/icon/icon_delete.png"}
+            %tr
+              %td{:width => "35"}
+                %input#check2.chkbox{:name => "checkbox[]", :type => "checkbox"}/
+              %td{:align => "left"} B ring
+              %td ring B
+              %td RD115560
+              %td
+                %span.tip
+                  %a{:title => "Edit"}
+                    %img{:src => "images/icon/icon_edit.png"}
+                %span.tip
+                  %a#1.Delete{:name => "Band ring", :title => "Delete"}
+                    %img{:src => "images/icon/icon_delete.png"}
+            %tr
+              %td{:width => "35"}
+                %input#check3.chkbox{:name => "checkbox[]", :type => "checkbox"}/
+              %td{:align => "left"} C ring
+              %td ring C
+              %td RD115561
+              %td
+                %span.tip
+                  %a{:title => "Edit"}
+                    %img{:src => "images/icon/icon_edit.png"}
+                %span.tip
+                  %a#1.Delete{:name => "Band ring", :title => "Delete"}
+                    %img{:src => "images/icon/icon_delete.png"}
+            %tr
+              %td{:width => "35"}
+                %input#check4.chkbox{:name => "checkbox[]", :type => "checkbox"}/
+              %td{:align => "left"} D ring
+              %td ring D
+              %td RD115562
+              %td
+                %span.tip
+                  %a{:title => "Edit"}
+                    %img{:src => "images/icon/icon_edit.png"}
+                %span.tip
+                  %a#1.Delete{:name => "Band ring", :title => "Delete"}
+                    %img{:src => "images/icon/icon_delete.png"}
+            %tr
+              %td{:width => "35"}
+                %input#check5.chkbox{:name => "checkbox[]", :type => "checkbox"}/
+              %td{:align => "left"} E ring
+              %td ring E
+              %td RD115562
+              %td
+                %span.tip
+                  %a{:title => "Edit"}
+                    %img{:src => "images/icon/icon_edit.png"}
+                %span.tip
+                  %a#1.Delete{:name => "Band ring", :title => "Delete"}
+                    %img{:src => "images/icon/icon_delete.png"}
+    .onecolumn
+      .header
+        %span
+          %span.ico.gray.random
+          Dynamic Table
+      / End header
+      .clear
+      .content
+        %form
+          .tableName
+            %h3 table Name #2
+            %table.display.data_table2
+              %thead
+                %tr
+                  %th
+                    .th_wrapp Rendering engine
+                  %th
+                    .th_wrapp Browser
+                  %th
+                    .th_wrapp Platform(s)
+                  %th
+                    .th_wrapp Engine version
+                  %th
+                    .th_wrapp CSS grade
+              %tbody
+                %tr.odd.gradeX
+                  %td Trident
+                  %td
+                    Internet
+                    Explorer 4.0
+                  %td Win 95+
+                  %td.center 4
+                  %td.center X
+                %tr.even.gradeC
+                  %td Trident
+                  %td
+                    Internet
+                    Explorer 5.0
+                  %td Win 95+
+                  %td.center 5
+                  %td.center C
+                %tr.odd.gradeA
+                  %td Trident
+                  %td
+                    Internet
+                    Explorer 5.5
+                  %td Win 95+
+                  %td.center 5.5
+                  %td.center A
+                %tr.even.gradeA
+                  %td Trident
+                  %td
+                    Internet
+                    Explorer 6
+                  %td Win 98+
+                  %td.center 6
+                  %td.center A
+                %tr.odd.gradeA
+                  %td Trident
+                  %td Internet Explorer 7
+                  %td Win XP SP2+
+                  %td.center 7
+                  %td.center A
+                %tr.even.gradeA
+                  %td Trident
+                  %td AOL browser (AOL desktop)
+                  %td Win XP
+                  %td.center 6
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Firefox 1.0
+                  %td Win 98+ / OSX.2+
+                  %td.center 1.7
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Firefox 1.5
+                  %td Win 98+ / OSX.2+
+                  %td.center 1.8
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Firefox 2.0
+                  %td Win 98+ / OSX.2+
+                  %td.center 1.8
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Firefox 3.0
+                  %td Win 2k+ / OSX.3+
+                  %td.center 1.9
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Camino 1.0
+                  %td OSX.2+
+                  %td.center 1.8
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Camino 1.5
+                  %td OSX.3+
+                  %td.center 1.8
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Netscape 7.2
+                  %td Win 95+ / Mac OS 8.6-9.2
+                  %td.center 1.7
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Netscape Browser 8
+                  %td Win 98SE+
+                  %td.center 1.7
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Netscape Navigator 9
+                  %td Win 98+ / OSX.2+
+                  %td.center 1.8
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Mozilla 1.0
+                  %td Win 95+ / OSX.1+
+                  %td.center 1
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Mozilla 1.1
+                  %td Win 95+ / OSX.1+
+                  %td.center 1.1
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Mozilla 1.2
+                  %td Win 95+ / OSX.1+
+                  %td.center 1.2
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Mozilla 1.3
+                  %td Win 95+ / OSX.1+
+                  %td.center 1.3
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Mozilla 1.4
+                  %td Win 95+ / OSX.1+
+                  %td.center 1.4
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Mozilla 1.5
+                  %td Win 95+ / OSX.1+
+                  %td.center 1.5
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Mozilla 1.6
+                  %td Win 95+ / OSX.1+
+                  %td.center 1.6
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Mozilla 1.7
+                  %td Win 98+ / OSX.1+
+                  %td.center 1.7
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Mozilla 1.8
+                  %td Win 98+ / OSX.1+
+                  %td.center 1.8
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Seamonkey 1.1
+                  %td Win 98+ / OSX.2+
+                  %td.center 1.8
+                  %td.center A
+                %tr.gradeA
+                  %td Gecko
+                  %td Epiphany 2.20
+                  %td Gnome
+                  %td.center 1.8
+                  %td.center A
+                %tr.gradeA
+                  %td Webkit
+                  %td Safari 1.2
+                  %td OSX.3
+                  %td.center 125.5
+                  %td.center A
+                %tr.gradeA
+                  %td Webkit
+                  %td Safari 1.3
+                  %td OSX.3
+                  %td.center 312.8
+                  %td.center A
+                %tr.gradeA
+                  %td Webkit
+                  %td Safari 2.0
+                  %td OSX.4+
+                  %td.center 419.3
+                  %td.center A
+                %tr.gradeA
+                  %td Webkit
+                  %td Safari 3.0
+                  %td OSX.4+
+                  %td.center 522.1
+                  %td.center A
+                %tr.gradeA
+                  %td Webkit
+                  %td OmniWeb 5.5
+                  %td OSX.4+
+                  %td.center 420
+                  %td.center A
+                %tr.gradeA
+                  %td Webkit
+                  %td iPod Touch / iPhone
+                  %td iPod
+                  %td.center 420.1
+                  %td.center A
+                %tr.gradeA
+                  %td Webkit
+                  %td S60
+                  %td S60
+                  %td.center 413
+                  %td.center A
+                %tr.gradeA
+                  %td Presto
+                  %td Opera 7.0
+                  %td Win 95+ / OSX.1+
+                  %td.center -
+                  %td.center A
+                %tr.gradeA
+                  %td Presto
+                  %td Opera 7.5
+                  %td Win 95+ / OSX.2+
+                  %td.center -
+                  %td.center A
+                %tr.gradeA
+                  %td Presto
+                  %td Opera 8.0
+                  %td Win 95+ / OSX.2+
+                  %td.center -
+                  %td.center A
+                %tr.gradeA
+                  %td Presto
+                  %td Opera 8.5
+                  %td Win 95+ / OSX.2+
+                  %td.center -
+                  %td.center A
+                %tr.gradeA
+                  %td Presto
+                  %td Opera 9.0
+                  %td Win 95+ / OSX.3+
+                  %td.center -
+                  %td.center A
+                %tr.gradeA
+                  %td Presto
+                  %td Opera 9.2
+                  %td Win 88+ / OSX.3+
+                  %td.center -
+                  %td.center A
+                %tr.gradeA
+                  %td Presto
+                  %td Opera 9.5
+                  %td Win 88+ / OSX.3+
+                  %td.center -
+                  %td.center A
+                %tr.gradeA
+                  %td Presto
+                  %td Opera for Wii
+                  %td Wii
+                  %td.center -
+                  %td.center A
+                %tr.gradeA
+                  %td Presto
+                  %td Nokia N800
+                  %td N800
+                  %td.center -
+                  %td.center A
+                %tr.gradeA
+                  %td Presto
+                  %td Nintendo DS browser
+                  %td Nintendo DS
+                  %td.center 8.5
+                  %td.center
+                    C/A
+                    %sup 1
+                %tr.gradeC
+                  %td KHTML
+                  %td Konqureror 3.1
+                  %td KDE 3.1
+                  %td.center 3.1
+                  %td.center C
+                %tr.gradeA
+                  %td KHTML
+                  %td Konqureror 3.3
+                  %td KDE 3.3
+                  %td.center 3.3
+                  %td.center A
+                %tr.gradeA
+                  %td KHTML
+                  %td Konqureror 3.5
+                  %td KDE 3.5
+                  %td.center 3.5
+                  %td.center A
+                %tr.gradeX
+                  %td Tasman
+                  %td Internet Explorer 4.5
+                  %td Mac OS 8-9
+                  %td.center -
+                  %td.center X
+                %tr.gradeC
+                  %td Tasman
+                  %td Internet Explorer 5.1
+                  %td Mac OS 7.6-9
+                  %td.center 1
+                  %td.center C
+                %tr.gradeC
+                  %td Tasman
+                  %td Internet Explorer 5.2
+                  %td Mac OS 8-X
+                  %td.center 1
+                  %td.center C
+                %tr.gradeA
+                  %td Misc
+                  %td NetFront 3.1
+                  %td Embedded devices
+                  %td.center -
+                  %td.center C
+                %tr.gradeA
+                  %td Misc
+                  %td NetFront 3.4
+                  %td Embedded devices
+                  %td.center -
+                  %td.center A
+                %tr.gradeX
+                  %td Misc
+                  %td Dillo 0.8
+                  %td Embedded devices
+                  %td.center -
+                  %td.center X
+                %tr.gradeX
+                  %td Misc
+                  %td Links
+                  %td Text only
+                  %td.center -
+                  %td.center X
+                %tr.gradeX
+                  %td Misc
+                  %td Lynx
+                  %td Text only
+                  %td.center -
+                  %td.center X
+                %tr.gradeC
+                  %td Misc
+                  %td IE Mobile
+                  %td Windows Mobile 6
+                  %td.center -
+                  %td.center C
+                %tr.gradeC
+                  %td Misc
+                  %td PSP browser
+                  %td PSP
+                  %td.center -
+                  %td.center C
+                %tr.gradeU
+                  %td Other browsers
+                  %td All others
+                  %td -
+                  %td.center -
+                  %td.center U
+    .onecolumn
+      .header
+        %span
+          %span.ico.gray.arrow_bidirectional>
+          Table in Tab
+      / End header
+      .clear
+      .content
+        #uploadTab
+          %ul.tabs
+            %li
+              %a{:href => "#tab1"} inTab
+            %li
+              %a{:href => "#tab2"}
+                with toolbar
+                %img{:height => "9", :src => "images/icon/new.gif", :width => "20"}/
+          .tab_container
+            #tab1.tab_content
+              .load_page
+                %form
+                  .tableName.inTab
+                    %h3 Table Name #3
+                    %table#data_table3.display.data_table3
+                      %thead
+                        %tr
+                          %th{:width => "35"}
+                            %input#checkAll.checkAll{:type => "checkbox"}/
+                          %th{:align => "left", :width => "352"} Name
+                          %th{:width => "174"} Type
+                          %th{:width => "246"} Show ID
+                          %th{:width => "199"} Management
+                      %tbody
+                        %tr
+                          %td{:width => "35"}
+                            %input#check11.chkbox{:name => "checkbox[]", :type => "checkbox"}/
+                          %td{:align => "left"} A ring
+                          %td ring A
+                          %td RD115599
+                          %td
+                            %span.tip
+                              %a{:title => "Edit"}
+                                %img{:src => "images/icon/icon_edit.png"}
+                            %span.tip
+                              %a#1.Delete{:name => "Band ring", :title => "Delete"}
+                                %img{:src => "images/icon/icon_delete.png"}
+                        %tr
+                          %td{:width => "35"}
+                            %input#check22.chkbox{:name => "checkbox[]", :type => "checkbox"}/
+                          %td{:align => "left"} B ring
+                          %td ring B
+                          %td RD115560
+                          %td
+                            %span.tip
+                              %a{:title => "Edit"}
+                                %img{:src => "images/icon/icon_edit.png"}
+                            %span.tip
+                              %a#1.Delete{:name => "Band ring", :title => "Delete"}
+                                %img{:src => "images/icon/icon_delete.png"}
+                        %tr
+                          %td{:width => "35"}
+                            %input#check33.chkbox{:name => "checkbox[]", :type => "checkbox"}/
+                          %td{:align => "left"} C ring
+                          %td ring C
+                          %td RD115561
+                          %td
+                            %span.tip
+                              %a{:title => "Edit"}
+                                %img{:src => "images/icon/icon_edit.png"}
+                            %span.tip
+                              %a#1.Delete{:name => "Band ring", :title => "Delete"}
+                                %img{:src => "images/icon/icon_delete.png"}
+                        %tr
+                          %td{:width => "35"}
+                            %input#check44.chkbox{:name => "checkbox[]", :type => "checkbox"}/
+                          %td{:align => "left"} D ring
+                          %td ring D
+                          %td RD115562
+                          %td
+                            %span.tip
+                              %a{:title => "Edit"}
+                                %img{:src => "images/icon/icon_edit.png"}
+                            %span.tip
+                              %a#1.Delete{:name => "Band ring", :title => "Delete"}
+                                %img{:src => "images/icon/icon_delete.png"}
+                        %tr
+                          %td{:width => "35"}
+                            %input#check55.chkbox{:name => "checkbox[]", :type => "checkbox"}/
+                          %td{:align => "left"} E ring
+                          %td ring E
+                          %td RD115562
+                          %td
+                            %span.tip
+                              %a{:title => "Edit"}
+                                %img{:src => "images/icon/icon_edit.png"}
+                            %span.tip
+                              %a#1.Delete{:name => "Band ring", :title => "Delete"}
+                                %img{:src => "images/icon/icon_delete.png"}
+            / tab1
+            #tab2.tab_content
+              .load_page
+                %ul.uibutton-group
+                  %li
+                    %a.uibutton.icon.add{:title => "Add Product"} Add Product
+                  %li
+                    %a.uibutton.special.DeleteAll Delete
+                %form
+                  .tableName.toolbar
+                    %h3 Table Name #4
+                    %table.display.data_table2
+                      %thead
+                        %tr
+                          %th
+                            .th_wrapp Rendering engine
+                          %th
+                            .th_wrapp Browser
+                          %th
+                            .th_wrapp Platform(s)
+                          %th
+                            .th_wrapp Engine version
+                          %th
+                            .th_wrapp CSS grade
+                      %tbody
+                        %tr.odd.gradeX
+                          %td Trident
+                          %td
+                            Internet
+                            Explorer 4.0
+                          %td Win 95+
+                          %td.center 4
+                          %td.center X
+                        %tr.even.gradeC
+                          %td Trident
+                          %td
+                            Internet
+                            Explorer 5.0
+                          %td Win 95+
+                          %td.center 5
+                          %td.center C
+                        %tr.odd.gradeA
+                          %td Trident
+                          %td
+                            Internet
+                            Explorer 5.5
+                          %td Win 95+
+                          %td.center 5.5
+                          %td.center A
+                        %tr.even.gradeA
+                          %td Trident
+                          %td
+                            Internet
+                            Explorer 6
+                          %td Win 98+
+                          %td.center 6
+                          %td.center A
+                        %tr.odd.gradeA
+                          %td Trident
+                          %td Internet Explorer 7
+                          %td Win XP SP2+
+                          %td.center 7
+                          %td.center A
+                        %tr.even.gradeA
+                          %td Trident
+                          %td AOL browser (AOL desktop)
+                          %td Win XP
+                          %td.center 6
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Firefox 1.0
+                          %td Win 98+ / OSX.2+
+                          %td.center 1.7
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Firefox 1.5
+                          %td Win 98+ / OSX.2+
+                          %td.center 1.8
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Firefox 2.0
+                          %td Win 98+ / OSX.2+
+                          %td.center 1.8
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Firefox 3.0
+                          %td Win 2k+ / OSX.3+
+                          %td.center 1.9
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Camino 1.0
+                          %td OSX.2+
+                          %td.center 1.8
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Camino 1.5
+                          %td OSX.3+
+                          %td.center 1.8
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Netscape 7.2
+                          %td Win 95+ / Mac OS 8.6-9.2
+                          %td.center 1.7
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Netscape Browser 8
+                          %td Win 98SE+
+                          %td.center 1.7
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Netscape Navigator 9
+                          %td Win 98+ / OSX.2+
+                          %td.center 1.8
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Mozilla 1.0
+                          %td Win 95+ / OSX.1+
+                          %td.center 1
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Mozilla 1.1
+                          %td Win 95+ / OSX.1+
+                          %td.center 1.1
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Mozilla 1.2
+                          %td Win 95+ / OSX.1+
+                          %td.center 1.2
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Mozilla 1.3
+                          %td Win 95+ / OSX.1+
+                          %td.center 1.3
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Mozilla 1.4
+                          %td Win 95+ / OSX.1+
+                          %td.center 1.4
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Mozilla 1.5
+                          %td Win 95+ / OSX.1+
+                          %td.center 1.5
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Mozilla 1.6
+                          %td Win 95+ / OSX.1+
+                          %td.center 1.6
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Mozilla 1.7
+                          %td Win 98+ / OSX.1+
+                          %td.center 1.7
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Mozilla 1.8
+                          %td Win 98+ / OSX.1+
+                          %td.center 1.8
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Seamonkey 1.1
+                          %td Win 98+ / OSX.2+
+                          %td.center 1.8
+                          %td.center A
+                        %tr.gradeA
+                          %td Gecko
+                          %td Epiphany 2.20
+                          %td Gnome
+                          %td.center 1.8
+                          %td.center A
+                        %tr.gradeA
+                          %td Webkit
+                          %td Safari 1.2
+                          %td OSX.3
+                          %td.center 125.5
+                          %td.center A
+                        %tr.gradeA
+                          %td Webkit
+                          %td Safari 1.3
+                          %td OSX.3
+                          %td.center 312.8
+                          %td.center A
+                        %tr.gradeA
+                          %td Webkit
+                          %td Safari 2.0
+                          %td OSX.4+
+                          %td.center 419.3
+                          %td.center A
+                        %tr.gradeA
+                          %td Webkit
+                          %td Safari 3.0
+                          %td OSX.4+
+                          %td.center 522.1
+                          %td.center A
+                        %tr.gradeA
+                          %td Webkit
+                          %td OmniWeb 5.5
+                          %td OSX.4+
+                          %td.center 420
+                          %td.center A
+                        %tr.gradeA
+                          %td Webkit
+                          %td iPod Touch / iPhone
+                          %td iPod
+                          %td.center 420.1
+                          %td.center A
+                        %tr.gradeA
+                          %td Webkit
+                          %td S60
+                          %td S60
+                          %td.center 413
+                          %td.center A
+                        %tr.gradeA
+                          %td Presto
+                          %td Opera 7.0
+                          %td Win 95+ / OSX.1+
+                          %td.center -
+                          %td.center A
+                        %tr.gradeA
+                          %td Presto
+                          %td Opera 7.5
+                          %td Win 95+ / OSX.2+
+                          %td.center -
+                          %td.center A
+                        %tr.gradeA
+                          %td Presto
+                          %td Opera 8.0
+                          %td Win 95+ / OSX.2+
+                          %td.center -
+                          %td.center A
+                        %tr.gradeA
+                          %td Presto
+                          %td Opera 8.5
+                          %td Win 95+ / OSX.2+
+                          %td.center -
+                          %td.center A
+                        %tr.gradeA
+                          %td Presto
+                          %td Opera 9.0
+                          %td Win 95+ / OSX.3+
+                          %td.center -
+                          %td.center A
+                        %tr.gradeA
+                          %td Presto
+                          %td Opera 9.2
+                          %td Win 88+ / OSX.3+
+                          %td.center -
+                          %td.center A
+                        %tr.gradeA
+                          %td Presto
+                          %td Opera 9.5
+                          %td Win 88+ / OSX.3+
+                          %td.center -
+                          %td.center A
+                        %tr.gradeA
+                          %td Presto
+                          %td Opera for Wii
+                          %td Wii
+                          %td.center -
+                          %td.center A
+                        %tr.gradeA
+                          %td Presto
+                          %td Nokia N800
+                          %td N800
+                          %td.center -
+                          %td.center A
+                        %tr.gradeA
+                          %td Presto
+                          %td Nintendo DS browser
+                          %td Nintendo DS
+                          %td.center 8.5
+                          %td.center
+                            C/A
+                            %sup 1
+                        %tr.gradeC
+                          %td KHTML
+                          %td Konqureror 3.1
+                          %td KDE 3.1
+                          %td.center 3.1
+                          %td.center C
+                        %tr.gradeA
+                          %td KHTML
+                          %td Konqureror 3.3
+                          %td KDE 3.3
+                          %td.center 3.3
+                          %td.center A
+                        %tr.gradeA
+                          %td KHTML
+                          %td Konqureror 3.5
+                          %td KDE 3.5
+                          %td.center 3.5
+                          %td.center A
+                        %tr.gradeX
+                          %td Tasman
+                          %td Internet Explorer 4.5
+                          %td Mac OS 8-9
+                          %td.center -
+                          %td.center X
+                        %tr.gradeC
+                          %td Tasman
+                          %td Internet Explorer 5.1
+                          %td Mac OS 7.6-9
+                          %td.center 1
+                          %td.center C
+                        %tr.gradeC
+                          %td Tasman
+                          %td Internet Explorer 5.2
+                          %td Mac OS 8-X
+                          %td.center 1
+                          %td.center C
+                        %tr.gradeA
+                          %td Misc
+                          %td NetFront 3.1
+                          %td Embedded devices
+                          %td.center -
+                          %td.center C
+                        %tr.gradeA
+                          %td Misc
+                          %td NetFront 3.4
+                          %td Embedded devices
+                          %td.center -
+                          %td.center A
+                        %tr.gradeX
+                          %td Misc
+                          %td Dillo 0.8
+                          %td Embedded devices
+                          %td.center -
+                          %td.center X
+                        %tr.gradeX
+                          %td Misc
+                          %td Links
+                          %td Text only
+                          %td.center -
+                          %td.center X
+                        %tr.gradeX
+                          %td Misc
+                          %td Lynx
+                          %td Text only
+                          %td.center -
+                          %td.center X
+                        %tr.gradeC
+                          %td Misc
+                          %td IE Mobile
+                          %td Windows Mobile 6
+                          %td.center -
+                          %td.center C
+                        %tr.gradeC
+                          %td Misc
+                          %td PSP browser
+                          %td PSP
+                          %td.center -
+                          %td.center C
+                        %tr.gradeU
+                          %td Other browsers
+                          %td All others
+                          %td -
+                          %td.center -
+                          %td.center U
+            / tab2
+        / /END TAB/
+        .clear/
+  .clear
+  #footer
+    \© Copyright 2012
+    %span.tip
+      %a{:href => "#", :title => "Zice Admin"} Your Company Name
+/ // End inner
+/ // End content
