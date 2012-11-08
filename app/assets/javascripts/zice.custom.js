@@ -136,7 +136,7 @@ $(document).ready(function(){
 	$('.numericonly input').autotab_magic().autotab_filter('numeric');
 	$('.textonly input').autotab_magic().autotab_filter('text');
 	$('.alphaonly input').autotab_magic().autotab_filter('alpha');
-	$('.regexonly input').autotab_magic().autotab_filter({ format: 'custom', pattern: '[^0-9\.]' });
+	$('.regexonly input').autotab_magic().autotab_filter({ format: 'custom', pattern: '[^]' });
 	$('.alluppercase input').autotab_magic().autotab_filter({ format: 'alphanumeric', uppercase: true });
 	
 
@@ -534,6 +534,11 @@ $(function() {
 		  checkedLabel: "in stocks",
 		  uncheckedLabel: "out stocks",
 		  labelWidth:'76px'
+	}); 
+	$(".tipoEmpresa").iphoneStyle({
+		  checkedLabel: "Ordinaria",
+		  uncheckedLabel: "Especial",
+		  labelWidth:'70px'
 	}); 
 	$(".online").iphoneStyle({
 		  checkedLabel: "online",

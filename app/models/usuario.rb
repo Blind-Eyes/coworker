@@ -20,39 +20,34 @@ class Usuario < ActiveRecord::Base
     #Usuario.where(["cedula = ? AND clave = MD5(?)", cedula, clave]).first
   end
 
-  /def es_estudiante?
-    Estudiante.where(:usuario_cedula => cedula).first
-  end
-
-  def es_docente?
-    Docente.where(:usuario_cedula => cedula).first
-  end
-
   def es_administrador?
     Administrador.where(:usuario_cedula => cedula).first
   end
 
-  def es_estudiante_admin?
-    Estudiante.where(:usuario_cedula => cedula).first && Administrador.where(:usuario_cedula => cedula).first
+  def es_director?
+    Director.where(:usuario_cedula => cedula).first
   end
 
-  def es_estudiante_docente?
-    Estudiante.where(:usuario_cedula => cedula).first && Docente.where(:usuario_cedula => cedula).first
+  def es_supervisor?
+    Supervisor.where(:usuario_cedula => cedula).first
   end
 
-  def es_docente_admin?
-    Docente.where(:usuario_cedula => cedula).first && Administrador.where(:usuario_cedula => cedula).first
+  def es_auxiliar?
+    Auxiliar.where(:usuario_cedula => cedula).first
   end
 
   def rol
-    if ret = es_estudiante?
-      return ret
-    end
-    if ret = es_docente?
-      return ret
-    end
     if ret = es_administrador?
       return ret
     end
-  end/
+    if ret = es_director?
+      return ret
+    end
+    if ret = es_supervisor?
+      return ret
+    end
+    if ret = es_auxiliar?
+      return ret
+    end
+  end
 end

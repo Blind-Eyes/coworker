@@ -50,13 +50,14 @@
     #header
       #account_info
         %img.avatar{:alt => "En Linea", :src => "../assets/avatar.png"}
-        .setting{:title => "Configuracion de Usuario"}
+        .setting{:title => "Configuración de Usuario"}
           %b Bienvenido,
           %b.SC_gold #{session[:usuario].nombre_completo}
-          %img.gear{:alt => "Configuracion de Usuario", :src => "../assets/gear.png"}
+          %img.gear{:alt => "Configuración de Usuario", :src => "../assets/gear.png"}
         .logout{:title => "Desconectarse"}
-          %b Logout
-          %img.disconnect{:alt => "Desconectarse", :name => "connect", :src => "../assets/connect.png"}
+          %a{:href => "cerrar_sesion"}
+            %b Desconectarse
+            %img.disconnect{:alt => "Desconectarse", :name => "connect", :src => "../assets/connect.png"}
     / //  header
     #shadowhead
     #hide_panel
