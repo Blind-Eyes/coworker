@@ -137,9 +137,9 @@ $(document).ready(function(){
 	$('.textonly input').autotab_magic().autotab_filter('text');
 	$('.alphaonly input').autotab_magic().autotab_filter('alpha');
 	$('.regexonly input').autotab_magic().autotab_filter({ format: 'custom', pattern: '[^]' });
+	$('.rifregex input').autotab_magic().autotab_filter({ format: 'custom', pattern: '[^(J|j|v|V|G|g{1})(1|2|3|4|5|6|7|8|9|0){9}+$]' });
 	$('.alluppercase input').autotab_magic().autotab_filter({ format: 'alphanumeric', uppercase: true });
 	
-
 
 });	
 

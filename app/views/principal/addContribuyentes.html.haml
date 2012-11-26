@@ -25,116 +25,8 @@
     .onecolumn
       .header
         %span
-          %span.ico.gray.window
-          Form Elements
-      .clear
-      .content
-        .boxtitle
-          %span.ico.gray.audio_knob
-          Basic Form ,Elements and custom input , go to advace
-          %span.netip
-            %a.red{:href => "vform.html", :title => "Live demo  Validation"} form Validation and  Live demo
-            %img{:alt => "link", :src => "../assets/icon/link.png"}/
-        %form#demo
-          .section
-            %label
-              full
-              %small Text custom
-            %div
-              %input.full{:name => "text[]", :type => "text"}/
-              %span.f_help Text custom help
-          .section
-            %label
-              large
-              %small Text custom
-            %div
-              %input.large{:type => "text"}/
-              %span.f_help Text custom help
-          .section
-            %label
-              medium
-              %small Text custom
-            %div
-              %input.medium{:type => "text"}/
-              %span.f_help Text custom help
-            %div
-              %input.medium{:type => "text"}/
-              %span.f_help Text custom help
-          .section
-            %label
-              small
-              %small Text custom
-            %div
-              %input.small{:type => "text"}/
-          .section
-            %label
-              xsmall
-              %small Text custom
-            %div
-              %input.xsmall{:type => "text"}/
-          .section
-            %label
-              xxsmall
-              %small Text custom
-            %div
-              %input.xxsmall{:type => "text"}/
-          .section
-            %label
-              Iphone checkbox
-              %small Text custom
-            %div
-              %input.on_off_checkbox{:checked => "checked", :type => "checkbox", :value => "1"}/
-            %div
-              %input.on_off_checkbox{:type => "checkbox", :value => "1"}/
-              %span.f_help ON / OFF
-            %div
-              %input.on_off_checkbox{:disabled => "disabled", :type => "checkbox"}/
-              %span.f_help Disabled
-          .section
-            %label
-              checkbox custom
-              %small Text custom
-            %div
-              %input#preOrder.tipoEmpresa{:name => "tipoEmpresa", :type => "checkbox", :value => "1"}
-              %span.f_help Ex. checkbox custom
-          .section
-            %label
-              select With search
-              %small Fix width
-            %div
-              %select.chzn-select{"data-placeholder" => "Choose a Country...", :tabindex => "2"}
-                %option{:value => ""}
-                %option{:value => "United States"} United States
-                %option{:value => "United Kingdom"} United Kingdom
-                %option{:value => "Afghanistan"} Afghanistan
-                %option{:value => "Albania"} Albania
-                %option{:value => "Algeria"} Algeria
-                %option{:value => "American Samoa"} American Samoa
-                %option{:value => "Andorra"} Andorra
-                %option{:value => "Angola"} Angola
-                %option{:value => "Anguilla"} Anguilla
-    / // End onecolumn
-    .onecolumn
-      .header
-        %span
-          %span.ico.gray.calendar
-          Date ,Time and Color picker
-      .clear
-      .content
-        %form{:action => "#"}
-          .section
-            %label Date picker Inline
-            %div
-              .datepickerInline
-          .section
-            %label Date picker
-            %div
-              %input#datepick.datepicker{:name => "datepicker", :readonly => "readonly", :type => "text"}/
-    .onecolumn
-      .header
-        %span
           %span.ico.gray.connect>
-          Validation and  Live demo
+          Contribuyentes
       / End header
       .clear
       .content
@@ -143,113 +35,84 @@
             #tab1.tab_content
               .load_page
                 .formEl_b
-                  %form{:action => "#"}
-                    %fieldset
-                      %legend
-                        Ex.  elements
-                        %span.small.s_color ( Custom )
-                      .section.numericonly
-                        %label
-                          onlyNums
-                          %small Text custom
-                        %div
-                          %input.large{:name => "text", :type => "text"}
-                      .section.textonly
-                        %label
-                          onlyText
-                          %small Text custom
-                        %div
-                          %input.large{:name => "text[]", :type => "text"}
-                      .section.alphaonly
-                        %label
-                          onlyAlpha
-                          %small Text custom
-                        %div
-                          %input.medium{:maxlength => "4", :name => "text[]", :type => "text"}
-                      .section.regexonly
-                        %label
-                          onlyRegex
-                          %small Text custom
-                        %div
-                          %input.large{:name => "text[]", :type => "text"}
-                      .section.alluppercase
-                        %label
-                          allUpper
-                          %small Text custom
-                        %div
-                          %input.large{:name => "text[]", :type => "text"}
-                      .section
-                        %label custom Ex.
-                        %div
-                          %input#menu.large{:name => "menu", :type => "text"}/
-                        %div
-                          %input#menu.small{:name => "menu", :type => "text"}/
-                          %span.f_help Text custom help
-                      .section.last
-                        %label
-                          custom   with label
-                          %small Text custom
-                        %div
-                          %input#priceSale.small{:name => "priceSale", :type => "text"}
-                            %label.red Sale price
-                        %div
-                          %input#on_off.on_off_checkbox{:checked => "checked", :name => "showPrice", :type => "checkbox", :value => "1"}/
-                          %span.f_help ON / OFF
-                .formEl_b
                   %form#validation
                     %fieldset
                       %legend
                         Agregar Contribuyentes
                       .section.numericonly
                         %label
-                          Código de Archivo
-                          %small Ingrese el código de la empresa para el archivo
+                          Código de Archivo:
+                          %small Ingrese el código de la empresa para el archivo, ej 0001
                         %div
                           %input#f_required.xsmall{:class => "validate[required]", :maxlength => "4", :name => "text", :type => "text"}
                       .section
                         %label
-                          input size
-                          %small Text custom
+                          Nombre de la Empresa:
+                          %small Ingrese el nombre de la empresa
                         %div
                           %input#f_required.large{:class => "validate[required]", :name => "f_required", :type => "text"}
+                      .section.rifregex
+                        %label
+                          RIF:
+                          %small Ingrese el RIF de la empresa, ej. J123456789
                         %div
-                          %input#menu.small{:class => "validate[required,custom[onlyLetterSp]]", :name => "menu", :type => "text"}/
-                          %span.f_help OnlyLetterSp
+                          %input#f_required.small{:class => "validate[required]", :maxlength => "10",:name => "text[]", :type => "text"}
                       .section
                         %label
-                          Email validate
-                          %small Text custom
+                          Dirección de la Empresa:
+                          %small Ingrese la dirección de la empresa
+                        %div
+                          %input#f_required.full{:class => "validate[required]", :name => "f_required", :type => "text"}
+                      .section
+                        %label
+                          Teléfonos de la Empresa:
+                          %small Ingrese los teléfonos de la empresa
+                        %div
+                          %input#f_required.full{:class => "validate[required]", :name => "f_required", :type => "text"}
+                      .section
+                        %label
+                          Responsable:
+                          %small Ingrese el nombre de la persona de contacto
+                        %div
+                          %input#f_required.medium{:class => "validate[required]", :name => "f_required", :type => "text"}
+                      .section
+                        %label
+                          Correo Electrónico de la empresa:
+                          %small Ingrese el correo electronico de la empresa
                         %div
                           %input#e_required.large{:class => "validate[required,custom[email]]", :name => "e_required", :type => "text"}
                       .section
                         %label
-                          Login  Account
-                          %small Text custom
+                          Municipio en el que se encuentra:
+                          %small Seleccione el municipio de la empresa
                         %div
-                          %input#username.medium{:class => "validate[required,minSize[3],maxSize[20],]", :name => "username", :type => "text"}/
-                          %label Username
-                          %span.f_help
-                            Username login or register.
-                            = succeed "Should" do
-                              %br/
-                            be between 3 and not more than 20 characters.
+                          %select.chzn-select{"data-placeholder" => "Seleccione un municipio...", :tabindex => "2"}
+                            %option{:value => ""}
+                            %option{:value => "Libertador"} Libertador
+                            %option{:value => "United Kingdom"} United Kingdom
+                            %option{:value => "Afghanistan"} Afghanistan
+                            %option{:value => "Albania"} Albania
+                            %option{:value => "Algeria"} Algeria
+                            %option{:value => "American Samoa"} American Samoa
+                            %option{:value => "Andorra"} Andorra
+                            %option{:value => "Angola"} Angola
+                            %option{:value => "Anguilla"} Anguilla
+                      .section
+                        %label 
+                          Fecha de Cierre de la empresa:
+                          %small Seleccione la fecha de cierre de la empresa
                         %div
-                          %input#password.medium{:class => "validate[required,minSize[3]]", :name => "password", :type => "password"}/
-                          %label Password
-                        %div
-                          %input#passwordCon.medium{:class => "validate[required,equals[password]]", :name => "passwordCon", :type => "password"}/
-                          %label Confirm Password
-                          %span.f_help Your password should be at least 6 characters.
+                          .datepickerInline
                       .section
                         %label
-                          URL validate
-                          %small Text custom
+                          Tipo de empresa:
+                          %small Seleccione si es contribuyente Ordinario o Especial
                         %div
-                          %input#url_required.large{:class => "validate[required,custom[url]]", :name => "url_required", :type => "text", :value => "http://"}
+                          %input#preOrder.tipoEmpresa{:name => "tipoEmpresa", :type => "checkbox", :value => "1"}
                       .section.last
                         %div
-                          %a.uibutton.submit_form submitForm
-                          %a.uibutton.special{:onClick => "ResetForm()", :title => "Reset  Form"} Clear Form
+                          %a.uibutton.submit_form Agregar Empresa
+                          %a.uibutton.special{:onClick => "ResetForm()", :title => "Reset  Form"} Borrar Formulario
             / tab1
         / /END TAB/
         .clear/
