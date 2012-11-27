@@ -2295,25 +2295,25 @@ clear: both;
   font-size: 12px;
 }
 .fc-button-next {
-  background-image:url(components/forward_disabled.png);
+  background-image:url(forward_disabled.png);
   right:0px;
   padding-right: 20px!important;
   background-position: right center;
 
 }
 .fc-button-next:hover {
-  background-image:url(components/forward_enabled_hover.png);
+  background-image:url(forward_enabled_hover.png);
     color: #666666;
 }
 .fc-button-prev {
   right:70px;
   padding-left: 20px!important;
   border-right: 1px #cccccc solid;
-  background-image: url(components/back_disabled.png);
+  background-image: url(back_disabled.png);
     background-position: left center;
 }
 .fc-button-prev:hover {
-  background-image : url(components/back_enabled_hover.png);
+  background-image : url(back_enabled_hover.png);
     color: #666666;
 }
 

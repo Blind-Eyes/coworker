@@ -2,6 +2,12 @@
 #content
   .inner
     .topcolumn
+      -if flash[:mensaje]
+        .flashMessage.error
+          =flash[:mensaje]
+      -if flash[:mensajeSuccess]
+        .flashMessage.success
+          =flash[:mensajeSuccess]
       .logo
       %ul#shortcut
         %li
@@ -35,7 +41,7 @@
             #tab1.tab_content
               .load_page
                 .formEl_b
-                  %form#validation
+                  %form#validation{:action => "/principal/procesar_add_contribuyentes"}
                     %fieldset
                       %legend
                         Agregar Contribuyentes
@@ -44,71 +50,80 @@
                           Código de Archivo:
                           %small Ingrese el código de la empresa para el archivo, ej 0001
                         %div
-                          %input#f_required.xsmall{:class => "validate[required]", :maxlength => "4", :name => "text", :type => "text"}
-                      .section
-                        %label
-                          Nombre de la Empresa:
-                          %small Ingrese el nombre de la empresa
-                        %div
-                          %input#f_required.large{:class => "validate[required]", :name => "f_required", :type => "text"}
+                          %input#f_required.xsmall{:class => "validate[required]", :maxlength => "4", :name => "codigo", :id => "codigo", :type => "text"}
                       .section.rifregex
                         %label
                           RIF:
                           %small Ingrese el RIF de la empresa, ej. J123456789
                         %div
-                          %input#f_required.small{:class => "validate[required]", :maxlength => "10",:name => "text[]", :type => "text"}
+                          %input#f_required.small{:class => "validate[required]", :maxlength => "10", :name => "rif", :id => "rif", :type => "text"}
+                      .section
+                        %label
+                          Nombre de la Empresa:
+                          %small Ingrese el nombre de la empresa
+                        %div
+                          %input#f_required.large{:class => "validate[required]", :name => "empresa", :id => "empresa", :type => "text"}
                       .section
                         %label
                           Dirección de la Empresa:
                           %small Ingrese la dirección de la empresa
                         %div
-                          %input#f_required.full{:class => "validate[required]", :name => "f_required", :type => "text"}
+                          %input#f_required.large{:class => "validate[required]", :name => "direccion", :id => "direccion", :type => "text"}
                       .section
                         %label
                           Teléfonos de la Empresa:
                           %small Ingrese los teléfonos de la empresa
                         %div
-                          %input#f_required.full{:class => "validate[required]", :name => "f_required", :type => "text"}
+                          %input#f_required.large{:class => "validate[required]", :name => "telefono", :id => "telefono", :type => "text"}
                       .section
                         %label
                           Responsable:
                           %small Ingrese el nombre de la persona de contacto
                         %div
-                          %input#f_required.medium{:class => "validate[required]", :name => "f_required", :type => "text"}
+                          %input#f_required.medium{:class => "validate[required]", :name => "contacto", :id => "contacto", :type => "text"}
                       .section
                         %label
                           Correo Electrónico de la empresa:
                           %small Ingrese el correo electronico de la empresa
                         %div
-                          %input#e_required.large{:class => "validate[required,custom[email]]", :name => "e_required", :type => "text"}
+                          %input#e_required.large{:class => "validate[required,custom[email]]", :name => "email", :id => "email", :type => "text"}
                       .section
                         %label
                           Municipio en el que se encuentra:
                           %small Seleccione el municipio de la empresa
                         %div
-                          %select.chzn-select{"data-placeholder" => "Seleccione un municipio...", :tabindex => "2"}
+                          %select#f_required.chzn-select{"data-placeholder" => "Seleccione un municipio...", :tabindex => "2", :name => "municipio", :id => "municipio"}
                             %option{:value => ""}
                             %option{:value => "Libertador"} Libertador
-                            %option{:value => "United Kingdom"} United Kingdom
-                            %option{:value => "Afghanistan"} Afghanistan
-                            %option{:value => "Albania"} Albania
-                            %option{:value => "Algeria"} Algeria
-                            %option{:value => "American Samoa"} American Samoa
-                            %option{:value => "Andorra"} Andorra
-                            %option{:value => "Angola"} Angola
-                            %option{:value => "Anguilla"} Anguilla
+                            %option{:value => "Chacao"} Chacao
+                            %option{:value => "El Hatillo"} El Hatillo
+                            %option{:value => "Sucre"} Sucre
+                            %option{:value => "Baruta"} Baruta
+                            %option{:value => "Otros"} Otros
                       .section
                         %label 
                           Fecha de Cierre de la empresa:
                           %small Seleccione la fecha de cierre de la empresa
                         %div
-                          .datepickerInline
+                          %input#f_required#datepick.datepicker{:name => "fecha", :readonly => "readonly", :type => "text"}
                       .section
                         %label
                           Tipo de empresa:
                           %small Seleccione si es contribuyente Ordinario o Especial
                         %div
-                          %input#preOrder.tipoEmpresa{:name => "tipoEmpresa", :type => "checkbox", :value => "1"}
+                          %input#preOrder.tipoEmpresa{:name => "tipoEmpresa", :id => "tipoEmpresa", :type => "checkbox", :value => "Ordinaria"}
+                      .section
+                        %label
+                          Usuario Seniat:
+                          %small Ingrese el nombre de usuario para la pagina del Seniat
+                        %div
+                          %input#f_required.medium{:class => "validate[required]", :name => "usuario", :id => "usuario", :type => "text"}
+                      .section
+                        %label
+                          Clave Seniat:
+                          %small Ingrese la clave para la pagina del Seniat
+                        %div
+                          %input#f_required.medium{:class => "validate[required]", :name => "clave", :id => "clave", :type => "text"}
                       .section.last
                         %div
                           %a.uibutton.submit_form Agregar Empresa

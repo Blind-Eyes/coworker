@@ -13,6 +13,59 @@ class PrincipalController < ApplicationController
     redirect_to :action => "index", :controller => "inicio"
   end
 
+  def addContribuyentes
+    @titulo_pagina = "Agregar Contribuyentes"
+  end
+
+  def procesar_add_contribuyentes
+    
+    @contribuyente = Contribuyente.new
+    @contribuyente.codigo = params[:codigo]
+    @contribuyente.nombre = params[:empresa]
+    @contribuyente.rif = params[:rif]
+    @contribuyente.direccion = params[:direccion]
+    @contribuyente.telefono = params[:telefono]
+    @contribuyente.contacto = params[:contacto]
+    @contribuyente.correo = params[:email]
+    @contribuyente.municipio = params[:municipio]
+    @contribuyente.fecha_cierre = params[:fecha]
+    @contribuyente.usuario = params[:usuario]
+    @contribuyente.clave = params[:clave]
+    if params[:tipoEmpresa]
+      @contribuyente.tipo = params[:tipoEmpresa]
+    else
+      @contribuyente.tipo = "Especial"
+    end
+    @contribuyente.activo = "1"
+
+
+    
+    if @contribuyente.save
+      #bitacora "El usuario #{session[:usuario].descripcion} agrego a "+@cedula.to_s+" al grupo"+@grupoNro.to_s+" de la entrega "+@entregaId.to_s
+      flash[:mensajeSuccess] = "Se ha agregado el contribuyente "+@contribuyente.nombre.to_s
+      redirect_to :action => "bienvenida"
+    else
+      flash[:mensaje] = "El RIF ya existe en el sistema"
+      redirect_to :action => "addContribuyentes"
+    end
+    return
+
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   def crear_entrega
     @titulo_pagina = "Crear entrega"
     #bitacora "El usuario #{session[:usuario].descripcion} ingreso en la seccion crear entrega del docente"

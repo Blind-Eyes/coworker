@@ -2,6 +2,12 @@
 #content
   .inner
     .topcolumn
+      -if flash[:mensaje]
+        .flashMessage.error
+          =flash[:mensaje]
+      -if flash[:mensajeSuccess]
+        .flashMessage.success
+          =flash[:mensajeSuccess]
       .logo
       %ul#shortcut
         %li
