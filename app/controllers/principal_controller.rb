@@ -21,7 +21,19 @@ class PrincipalController < ApplicationController
     
     @contribuyente = Contribuyente.new
     @contribuyente.codigo = params[:codigo]
+    if @cont = Contribuyente.where(:codigo => params[:codigo]).first
+      if @cont.activo = 1
+        flash[:mensaje] = "Ya la empresa activa '"+@cont.nombre.to_s+"' tiene el codigo "+@cont.codigo.to_s
+        redirect_to :action => "addContribuyentes"
+        return
+      end
+    end
     @contribuyente.nombre = params[:empresa]
+    if Contribuyente.where(:rif => params[:rif]).first
+      flash[:mensaje] = "El RIF '"+params[:rif]+"' ya existe en el sistema"
+      redirect_to :action => "addContribuyentes"
+      return
+    end
     @contribuyente.rif = params[:rif]
     @contribuyente.direccion = params[:direccion]
     @contribuyente.telefono = params[:telefono]
@@ -52,9 +64,9 @@ class PrincipalController < ApplicationController
 
   end
 
-
-
-
+  def contribuyentes  
+    @contribuyentes = Contribuyente.where(:activo => "1")
+  end
 
 
 
