@@ -65,7 +65,8 @@ class PrincipalController < ApplicationController
   end
 
   def contribuyentes  
-    @contribuyentes = Contribuyente.where(:activo => "1")
+    @contribuyentesID = ContribuyenteAuxiliar.find(:all)
+    @contribuyentesInactivos = Contribuyente.where(:activo => "0")
   end
 
 

@@ -46,19 +46,57 @@
                     %th{:width => "35"}Código
                     %th{:align => "left", :width => "352"} Nombre
                     %th{:width => "174"} RIF
+                    %th{:width => "226"} Asignada a
+                    %th{:width => "100"} 
+                %tbody
+                  -@contribuyentesID.contribuyentes(1).each do |contribuyente|
+                    %tr
+                      %td{:width => "35"}
+                        =contribuyente.auxiliar_cedula
+                      %td{:align => "left"} 
+                        =contribuyente.contribuyente_id
+                      %td 
+                        //=contribuyente.rif
+                      %td 
+                        //=@contribuyentesID.nombreCompleto(@contribuyentesID.auxiliar_cedula)
+                      %td
+                        %span.tip
+                          %a{:title => "Editar"}
+                            %img{:src => "../assets/icon/icon_edit.png"}
+                        %span.tip
+                          %a#1.Delete{:name => "Band ring", :title => "Eliminar"}
+                            %img{:src => "../assets/icon/icon_delete.png"}
+    .onecolumn
+      .header
+        %span
+          %span.ico.gray.arrow_bidirectional>
+          Contribuyentes sin asignar
+      / End header
+      .clear
+      .content
+        .load_page
+          %form
+            .tableName.inTab
+              %h3 Contribuyentes Inactivos
+              %table#data_table3.display.data_table3
+                %thead
+                  %tr
+                    %th{:width => "35"}Código
+                    %th{:align => "left", :width => "352"} Nombre
+                    %th{:width => "174"} RIF
                     %th{:width => "226"} Municipio
                     %th{:width => "100"} 
                 %tbody
-                  -@contribuyentes.each do |contribuyente|
+                  -@contribuyentesInactivos.each do |contribuyenteInactivo|
                     %tr
                       %td{:width => "35"} 
-                        =contribuyente.codigo
+                        =contribuyenteInactivo.codigo
                       %td{:align => "left"} 
-                        =contribuyente.nombre
+                        =contribuyenteInactivo.nombre
                       %td 
-                        =contribuyente.rif
+                        =contribuyenteInactivo.rif
                       %td 
-                        =contribuyente.municipio
+                        =contribuyenteInactivo.municipio
                       %td
                         %span.tip
                           %a{:title => "Editar"}
