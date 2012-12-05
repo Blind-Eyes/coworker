@@ -49,12 +49,12 @@
                     %th{:width => "226"} Asignada a
                     %th{:width => "100"} 
                 %tbody
-                  -@contribuyentesID.contribuyentes(1).each do |contribuyente|
+                  -@contribuyente.each do |contribuyente|
                     %tr
                       %td{:width => "35"}
-                        =contribuyente.auxiliar_cedula
+                        =contribuyente.nombre
                       %td{:align => "left"} 
-                        =contribuyente.contribuyente_id
+                        =contribuyente.rif
                       %td 
                         //=contribuyente.rif
                       %td 

@@ -65,9 +65,16 @@ class PrincipalController < ApplicationController
   end
 
   def contribuyentes  
-    @contribuyentesID = ContribuyenteAuxiliar.find(:all)
-    @contribuyentesInactivos = Contribuyente.where(:activo => "0")
+    #@contribuyente = ContribuyenteAuxiliar.joins(:contribuyentes)
+    @contribuyente = Contribuyente.find(:all,
+            :joins => "INNER JOIN contribuyente_auxiliar ON contribuyente_auxiliar.contribuyente_id = contribuyente.id" ,
+            :select => "contribuyente.*")
+    @contribuyentesInactivos = Contribuyente.find(:all,
+            :joins => "RIGHT OUTER JOIN contribuyente_auxiliar ON contribuyente_auxiliar.contribuyente_id != contribuyente.id" ,
+            :select => "contribuyente.*")
   end
+
+
 
 
 

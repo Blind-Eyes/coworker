@@ -13,7 +13,7 @@ class ContribuyenteAuxiliar < ActiveRecord::Base
 		"#{nombre} #{apellido}"
 	end
 
-	def contribuyentes(contribuyenteID)
+	def contrib(contribuyenteID)
 		Contribuyente.where(:id => contribuyenteID)
 	end
 end
