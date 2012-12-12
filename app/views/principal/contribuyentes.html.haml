@@ -49,23 +49,20 @@
                     %th{:width => "226"} Asignada a
                     %th{:width => "100"} 
                 %tbody
-                  -@contribuyente.each do |contribuyente|
+                  -@relacion.each do |cont|
                     %tr
                       %td{:width => "35"}
-                        =contribuyente.nombre
+                        =cont.codigo(cont.contribuyente_id)
                       %td{:align => "left"} 
-                        =contribuyente.rif
+                        =cont.empresa(cont.contribuyente_id)
                       %td 
-                        //=contribuyente.rif
+                        =cont.rif(cont.contribuyente_id)
                       %td 
-                        //=@contribuyentesID.nombreCompleto(@contribuyentesID.auxiliar_cedula)
+                        =cont.nombreCompleto(cont.auxiliar_cedula)
                       %td
                         %span.tip
-                          %a{:title => "Editar"}
-                            %img{:src => "../assets/icon/icon_edit.png"}
-                        %span.tip
-                          %a#1.Delete{:name => "Band ring", :title => "Eliminar"}
-                            %img{:src => "../assets/icon/icon_delete.png"}
+                          %a{:title => "Ver Información Completa"}
+                            %img{:src => "../assets/icon/color_18/eye.png"}
     .onecolumn
       .header
         %span
@@ -77,7 +74,7 @@
         .load_page
           %form
             .tableName.inTab
-              %h3 Contribuyentes Inactivos
+              %h3 Contribuyentes Sin Asignar
               %table#data_table3.display.data_table3
                 %thead
                   %tr
@@ -99,11 +96,8 @@
                         =contribuyenteInactivo.municipio
                       %td
                         %span.tip
-                          %a{:title => "Editar"}
-                            %img{:src => "../assets/icon/icon_edit.png"}
-                        %span.tip
-                          %a#1.Delete{:name => "Band ring", :title => "Eliminar"}
-                            %img{:src => "../assets/icon/icon_delete.png"}
+                          %a{:title => "Ver Información Completa"}
+                            %img{:src => "../assets/icon/color_18/eye.png"}
                   
         / /END TAB/
         .clear/

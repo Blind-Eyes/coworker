@@ -4,6 +4,7 @@ $.fn.imgdata = function(key){
 $.fn.hdata = function(key){
 	return this.find('.dataSet li:eq('+key+')').text();
 }
+
 // options cookie 10 days
 var options = { path: '/', expires: 10 };
 var buttonActions = {

@@ -61,19 +61,20 @@ class PrincipalController < ApplicationController
       redirect_to :action => "addContribuyentes"
     end
     return
-
   end
 
-  def contribuyentes  
-    #@contribuyente = ContribuyenteAuxiliar.joins(:contribuyentes)
+  def contribuyentes 
+    @relacion = ContribuyenteAuxiliar.find(:all, :select => "contribuyente_auxiliar.*")
     @contribuyente = Contribuyente.find(:all,
             :joins => "INNER JOIN contribuyente_auxiliar ON contribuyente_auxiliar.contribuyente_id = contribuyente.id" ,
             :select => "contribuyente.*")
+    @auxiliar = Usuario.find(:all,
+            :joins => "INNER JOIN contribuyente_auxiliar ON contribuyente_auxiliar.auxiliar_cedula = usuario.cedula" ,
+            :select => "usuario.*")
     @contribuyentesInactivos = Contribuyente.find(:all,
             :joins => "RIGHT OUTER JOIN contribuyente_auxiliar ON contribuyente_auxiliar.contribuyente_id != contribuyente.id" ,
             :select => "contribuyente.*")
   end
-
 
 
 

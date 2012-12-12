@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require jquery.facebox
 //= require_tree .
 
 //=require_tree ./inicio

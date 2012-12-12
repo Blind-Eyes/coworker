@@ -13,7 +13,20 @@ class ContribuyenteAuxiliar < ActiveRecord::Base
 		"#{nombre} #{apellido}"
 	end
 
-	def contrib(contribuyenteID)
-		Contribuyente.where(:id => contribuyenteID)
+	def codigo(contribuyenteID)
+		codigo = Contribuyente.where(:id => contribuyenteID).first.codigo
+		"#{codigo}"
 	end
+
+	def rif(contribuyenteID)
+		rif = Contribuyente.where(:id => contribuyenteID).first.rif
+		"#{rif}"
+	end
+
+	def empresa(contribuyenteID)
+		nombre = Contribuyente.where(:id => contribuyenteID).first.nombre
+		"#{nombre}"
+	end
+
+
 end
