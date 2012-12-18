@@ -7,6 +7,10 @@
 # $ -> 
 #  $('#entrega_seccion_materia_id').change ->
 #    $('#ajax-loader').show()
+#   
+# $ -> 
+#  $('#nombre').click ->
+#    $('#ajax-loader').show()
 #    materia_id = $(this).attr('value')
 #    $.ajax
 #      url: 'ajax_buscar_seccion?materia_id='+materia_id,

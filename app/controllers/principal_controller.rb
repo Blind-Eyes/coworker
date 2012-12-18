@@ -76,7 +76,9 @@ class PrincipalController < ApplicationController
             :select => "contribuyente.*")
   end
 
-
+  def modContribuyentes 
+    @empresas = Contribuyente.find(:all, :select => "contribuyente.nombre")
+  end
 
 
 
