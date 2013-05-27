@@ -1,15 +1,24 @@
 /*
-MySQL Data Transfer
-Source Host: localhost
-Source Database: coworker
-Target Host: localhost
-Target Database: coworker
-Date: 18/12/2012 11:48:50 AM
+ Navicat Premium Data Transfer
+
+ Source Server         : localhost
+ Source Server Type    : MySQL
+ Source Server Version : 50528
+ Source Host           : localhost
+ Source Database       : coworker
+
+ Target Server Type    : MySQL
+ Target Server Version : 50528
+ File Encoding         : utf-8
+
+ Date: 05/26/2013 22:08:33 PM
 */
 
-SET FOREIGN_KEY_CHECKS=0;
+SET NAMES utf8;
+SET FOREIGN_KEY_CHECKS = 0;
+
 -- ----------------------------
--- Table structure for administrador
+--  Table structure for `administrador`
 -- ----------------------------
 DROP TABLE IF EXISTS `administrador`;
 CREATE TABLE `administrador` (
@@ -20,7 +29,14 @@ CREATE TABLE `administrador` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for auxiliar
+--  Records of `administrador`
+-- ----------------------------
+BEGIN;
+INSERT INTO `administrador` VALUES ('20174430');
+COMMIT;
+
+-- ----------------------------
+--  Table structure for `auxiliar`
 -- ----------------------------
 DROP TABLE IF EXISTS `auxiliar`;
 CREATE TABLE `auxiliar` (
@@ -31,7 +47,14 @@ CREATE TABLE `auxiliar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for bitacora
+--  Records of `auxiliar`
+-- ----------------------------
+BEGIN;
+INSERT INTO `auxiliar` VALUES ('20174430');
+COMMIT;
+
+-- ----------------------------
+--  Table structure for `bitacora`
 -- ----------------------------
 DROP TABLE IF EXISTS `bitacora`;
 CREATE TABLE `bitacora` (
@@ -44,7 +67,7 @@ CREATE TABLE `bitacora` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for carpeta_iva
+--  Table structure for `carpeta_iva`
 -- ----------------------------
 DROP TABLE IF EXISTS `carpeta_iva`;
 CREATE TABLE `carpeta_iva` (
@@ -61,7 +84,7 @@ CREATE TABLE `carpeta_iva` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for cobranza
+--  Table structure for `cobranza`
 -- ----------------------------
 DROP TABLE IF EXISTS `cobranza`;
 CREATE TABLE `cobranza` (
@@ -78,7 +101,7 @@ CREATE TABLE `cobranza` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for cobranza_cheque
+--  Table structure for `cobranza_cheque`
 -- ----------------------------
 DROP TABLE IF EXISTS `cobranza_cheque`;
 CREATE TABLE `cobranza_cheque` (
@@ -98,7 +121,7 @@ CREATE TABLE `cobranza_cheque` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for cobranza_deposito
+--  Table structure for `cobranza_deposito`
 -- ----------------------------
 DROP TABLE IF EXISTS `cobranza_deposito`;
 CREATE TABLE `cobranza_deposito` (
@@ -117,7 +140,7 @@ CREATE TABLE `cobranza_deposito` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for cobranza_efectivo
+--  Table structure for `cobranza_efectivo`
 -- ----------------------------
 DROP TABLE IF EXISTS `cobranza_efectivo`;
 CREATE TABLE `cobranza_efectivo` (
@@ -133,7 +156,7 @@ CREATE TABLE `cobranza_efectivo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for contribuyente
+--  Table structure for `contribuyente`
 -- ----------------------------
 DROP TABLE IF EXISTS `contribuyente`;
 CREATE TABLE `contribuyente` (
@@ -157,7 +180,14 @@ CREATE TABLE `contribuyente` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for contribuyente_auxiliar
+--  Records of `contribuyente`
+-- ----------------------------
+BEGIN;
+INSERT INTO `contribuyente` VALUES ('1', '1', 'Prueba', 'J-123456-7', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'Ordinaria', '1', 'hahahaha', 'jajajaja'), ('9', '7', 'Corporación Fujiyama West, C.A.', 'J400169836', 'Calle 2 de Vista Alegre, Edif. Mago, PB, Local 4', '0212-4711759', 'Eduardo Rodriguez', 'fujiyamasushibar@gmail.com', 'Libertador', '31-12-2012', 'Ordinaria', '1', 'fujiwest', 'J400169836');
+COMMIT;
+
+-- ----------------------------
+--  Table structure for `contribuyente_auxiliar`
 -- ----------------------------
 DROP TABLE IF EXISTS `contribuyente_auxiliar`;
 CREATE TABLE `contribuyente_auxiliar` (
@@ -171,7 +201,14 @@ CREATE TABLE `contribuyente_auxiliar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for declarada_islr
+--  Records of `contribuyente_auxiliar`
+-- ----------------------------
+BEGIN;
+INSERT INTO `contribuyente_auxiliar` VALUES ('20174430', '1');
+COMMIT;
+
+-- ----------------------------
+--  Table structure for `declarada_islr`
 -- ----------------------------
 DROP TABLE IF EXISTS `declarada_islr`;
 CREATE TABLE `declarada_islr` (
@@ -189,7 +226,7 @@ CREATE TABLE `declarada_islr` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for declarada_iva
+--  Table structure for `declarada_iva`
 -- ----------------------------
 DROP TABLE IF EXISTS `declarada_iva`;
 CREATE TABLE `declarada_iva` (
@@ -206,7 +243,7 @@ CREATE TABLE `declarada_iva` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for desarrollo_islr
+--  Table structure for `desarrollo_islr`
 -- ----------------------------
 DROP TABLE IF EXISTS `desarrollo_islr`;
 CREATE TABLE `desarrollo_islr` (
@@ -224,7 +261,7 @@ CREATE TABLE `desarrollo_islr` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for director
+--  Table structure for `director`
 -- ----------------------------
 DROP TABLE IF EXISTS `director`;
 CREATE TABLE `director` (
@@ -235,7 +272,14 @@ CREATE TABLE `director` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for factura_islr
+--  Records of `director`
+-- ----------------------------
+BEGIN;
+INSERT INTO `director` VALUES ('20174430');
+COMMIT;
+
+-- ----------------------------
+--  Table structure for `factura_islr`
 -- ----------------------------
 DROP TABLE IF EXISTS `factura_islr`;
 CREATE TABLE `factura_islr` (
@@ -252,7 +296,7 @@ CREATE TABLE `factura_islr` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for factura_iva
+--  Table structure for `factura_iva`
 -- ----------------------------
 DROP TABLE IF EXISTS `factura_iva`;
 CREATE TABLE `factura_iva` (
@@ -269,7 +313,7 @@ CREATE TABLE `factura_iva` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for facturacion
+--  Table structure for `facturacion`
 -- ----------------------------
 DROP TABLE IF EXISTS `facturacion`;
 CREATE TABLE `facturacion` (
@@ -288,7 +332,7 @@ CREATE TABLE `facturacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for fechas
+--  Table structure for `fechas`
 -- ----------------------------
 DROP TABLE IF EXISTS `fechas`;
 CREATE TABLE `fechas` (
@@ -304,7 +348,7 @@ CREATE TABLE `fechas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for islr
+--  Table structure for `islr`
 -- ----------------------------
 DROP TABLE IF EXISTS `islr`;
 CREATE TABLE `islr` (
@@ -320,7 +364,7 @@ CREATE TABLE `islr` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for iva_mensual
+--  Table structure for `iva_mensual`
 -- ----------------------------
 DROP TABLE IF EXISTS `iva_mensual`;
 CREATE TABLE `iva_mensual` (
@@ -338,7 +382,7 @@ CREATE TABLE `iva_mensual` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for patente
+--  Table structure for `patente`
 -- ----------------------------
 DROP TABLE IF EXISTS `patente`;
 CREATE TABLE `patente` (
@@ -353,7 +397,7 @@ CREATE TABLE `patente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for patente_ano
+--  Table structure for `patente_ano`
 -- ----------------------------
 DROP TABLE IF EXISTS `patente_ano`;
 CREATE TABLE `patente_ano` (
@@ -371,7 +415,7 @@ CREATE TABLE `patente_ano` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for patente_mes
+--  Table structure for `patente_mes`
 -- ----------------------------
 DROP TABLE IF EXISTS `patente_mes`;
 CREATE TABLE `patente_mes` (
@@ -390,7 +434,7 @@ CREATE TABLE `patente_mes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for procesada_iva
+--  Table structure for `procesada_iva`
 -- ----------------------------
 DROP TABLE IF EXISTS `procesada_iva`;
 CREATE TABLE `procesada_iva` (
@@ -405,7 +449,7 @@ CREATE TABLE `procesada_iva` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for retenciones_islr
+--  Table structure for `retenciones_islr`
 -- ----------------------------
 DROP TABLE IF EXISTS `retenciones_islr`;
 CREATE TABLE `retenciones_islr` (
@@ -422,7 +466,7 @@ CREATE TABLE `retenciones_islr` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for retenciones_iva
+--  Table structure for `retenciones_iva`
 -- ----------------------------
 DROP TABLE IF EXISTS `retenciones_iva`;
 CREATE TABLE `retenciones_iva` (
@@ -440,7 +484,7 @@ CREATE TABLE `retenciones_iva` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for supervisor
+--  Table structure for `supervisor`
 -- ----------------------------
 DROP TABLE IF EXISTS `supervisor`;
 CREATE TABLE `supervisor` (
@@ -451,7 +495,14 @@ CREATE TABLE `supervisor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for usuario
+--  Records of `supervisor`
+-- ----------------------------
+BEGIN;
+INSERT INTO `supervisor` VALUES ('20174430');
+COMMIT;
+
+-- ----------------------------
+--  Table structure for `usuario`
 -- ----------------------------
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
@@ -472,13 +523,10 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records 
+--  Records of `usuario`
 -- ----------------------------
-INSERT INTO `administrador` VALUES ('20174430');
-INSERT INTO `auxiliar` VALUES ('20174430');
-INSERT INTO `contribuyente` VALUES ('1', '1', 'Prueba', 'J-123456-7', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'Ordinaria', '1', 'hahahaha', 'jajajaja');
-INSERT INTO `contribuyente` VALUES ('9', '7', 'Corporación Fujiyama West, C.A.', 'J400169836', 'Calle 2 de Vista Alegre, Edif. Mago, PB, Local 4', '0212-4711759', 'Eduardo Rodriguez', 'fujiyamasushibar@gmail.com', 'Libertador', '31-12-2012', 'Ordinaria', '1', 'fujiwest', 'J400169836');
-INSERT INTO `contribuyente_auxiliar` VALUES ('20174430', '1');
-INSERT INTO `director` VALUES ('20174430');
-INSERT INTO `supervisor` VALUES ('20174430');
+BEGIN;
 INSERT INTO `usuario` VALUES ('20174430', 'Alejandro', 'Pardo Rodriguez', 'e10adc3949ba59abbe56e057f20f883e', 'alejandro.pardo.r@gmail.com', '0416-4151084', 'Administrador', '2011-08-15 00:00:00', 'apardo', '1700', '1');
+COMMIT;
+
+SET FOREIGN_KEY_CHECKS = 1;
